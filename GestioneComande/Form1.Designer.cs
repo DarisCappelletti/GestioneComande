@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Crea = new System.Windows.Forms.Button();
             this.txtTipologia = new System.Windows.Forms.TextBox();
@@ -44,6 +46,8 @@
             this.btnSalvaListaPiatti = new System.Windows.Forms.Button();
             this.gdrListaPiatti = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lblCostoTotale = new System.Windows.Forms.Label();
+            this.lblTotale = new System.Windows.Forms.Label();
             this.lblOraAttuale = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblDataAttuale = new System.Windows.Forms.Label();
@@ -53,8 +57,7 @@
             this.gdvComanda = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.lblTotale = new System.Windows.Forms.Label();
-            this.lblCostoTotale = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabGestioneComande.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -65,9 +68,10 @@
             // 
             // Crea
             // 
-            this.Crea.Location = new System.Drawing.Point(434, 266);
+            this.Crea.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Crea.Location = new System.Drawing.Point(634, 361);
             this.Crea.Name = "Crea";
-            this.Crea.Size = new System.Drawing.Size(75, 23);
+            this.Crea.Size = new System.Drawing.Size(164, 56);
             this.Crea.TabIndex = 0;
             this.Crea.Text = "Crea";
             this.Crea.UseVisualStyleBackColor = true;
@@ -75,57 +79,63 @@
             // 
             // txtTipologia
             // 
-            this.txtTipologia.Location = new System.Drawing.Point(335, 132);
+            this.txtTipologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipologia.Location = new System.Drawing.Point(562, 145);
             this.txtTipologia.Name = "txtTipologia";
-            this.txtTipologia.Size = new System.Drawing.Size(311, 22);
+            this.txtTipologia.Size = new System.Drawing.Size(311, 45);
             this.txtTipologia.TabIndex = 1;
             // 
             // lblTipologia
             // 
             this.lblTipologia.AutoSize = true;
-            this.lblTipologia.Location = new System.Drawing.Point(245, 135);
+            this.lblTipologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipologia.Location = new System.Drawing.Point(387, 145);
             this.lblTipologia.Name = "lblTipologia";
-            this.lblTipologia.Size = new System.Drawing.Size(66, 17);
+            this.lblTipologia.Size = new System.Drawing.Size(166, 39);
             this.lblTipologia.TabIndex = 2;
-            this.lblTipologia.Text = "Tipologia";
+            this.lblTipologia.Text = "Tipologia:";
             // 
             // lblQuantità
             // 
             this.lblQuantità.AutoSize = true;
-            this.lblQuantità.Location = new System.Drawing.Point(245, 172);
+            this.lblQuantità.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantità.Location = new System.Drawing.Point(387, 218);
             this.lblQuantità.Name = "lblQuantità";
-            this.lblQuantità.Size = new System.Drawing.Size(62, 17);
+            this.lblQuantità.Size = new System.Drawing.Size(154, 39);
             this.lblQuantità.TabIndex = 4;
-            this.lblQuantità.Text = "Quantità";
+            this.lblQuantità.Text = "Quantità:";
             // 
             // txtQuantita
             // 
-            this.txtQuantita.Location = new System.Drawing.Point(335, 169);
+            this.txtQuantita.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantita.Location = new System.Drawing.Point(562, 212);
             this.txtQuantita.Name = "txtQuantita";
-            this.txtQuantita.Size = new System.Drawing.Size(311, 22);
+            this.txtQuantita.Size = new System.Drawing.Size(311, 45);
             this.txtQuantita.TabIndex = 3;
             // 
             // lblCosto
             // 
             this.lblCosto.AutoSize = true;
-            this.lblCosto.Location = new System.Drawing.Point(245, 213);
+            this.lblCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCosto.Location = new System.Drawing.Point(387, 293);
             this.lblCosto.Name = "lblCosto";
-            this.lblCosto.Size = new System.Drawing.Size(44, 17);
+            this.lblCosto.Size = new System.Drawing.Size(115, 39);
             this.lblCosto.TabIndex = 6;
-            this.lblCosto.Text = "Costo";
+            this.lblCosto.Text = "Costo:";
             // 
             // txtCosto
             // 
-            this.txtCosto.Location = new System.Drawing.Point(335, 210);
+            this.txtCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCosto.Location = new System.Drawing.Point(562, 287);
             this.txtCosto.Name = "txtCosto";
-            this.txtCosto.Size = new System.Drawing.Size(311, 22);
+            this.txtCosto.Size = new System.Drawing.Size(311, 45);
             this.txtCosto.TabIndex = 5;
             // 
             // lblTitoloCreaPiatto
             // 
             this.lblTitoloCreaPiatto.AutoSize = true;
             this.lblTitoloCreaPiatto.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitoloCreaPiatto.Location = new System.Drawing.Point(282, 18);
+            this.lblTitoloCreaPiatto.Location = new System.Drawing.Point(515, 24);
             this.lblTitoloCreaPiatto.Name = "lblTitoloCreaPiatto";
             this.lblTitoloCreaPiatto.Size = new System.Drawing.Size(358, 76);
             this.lblTitoloCreaPiatto.TabIndex = 8;
@@ -139,7 +149,7 @@
             this.tabGestioneComande.Location = new System.Drawing.Point(3, 12);
             this.tabGestioneComande.Name = "tabGestioneComande";
             this.tabGestioneComande.SelectedIndex = 0;
-            this.tabGestioneComande.Size = new System.Drawing.Size(903, 508);
+            this.tabGestioneComande.Size = new System.Drawing.Size(1410, 668);
             this.tabGestioneComande.TabIndex = 9;
             this.tabGestioneComande.SelectedIndexChanged += new System.EventHandler(this.tabGestioneComande_SelectedIndexchanged);
             // 
@@ -156,7 +166,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(895, 479);
+            this.tabPage1.Size = new System.Drawing.Size(1402, 639);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Crea piatto";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -169,7 +179,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(895, 479);
+            this.tabPage2.Size = new System.Drawing.Size(1402, 639);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Lista piatti";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -179,7 +189,7 @@
             this.label1.AutoSize = true;
             this.label1.CausesValidation = false;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(281, 5);
+            this.label1.Location = new System.Drawing.Point(523, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(332, 76);
             this.label1.TabIndex = 2;
@@ -187,7 +197,7 @@
             // 
             // btnSalvaListaPiatti
             // 
-            this.btnSalvaListaPiatti.Location = new System.Drawing.Point(401, 420);
+            this.btnSalvaListaPiatti.Location = new System.Drawing.Point(682, 585);
             this.btnSalvaListaPiatti.Name = "btnSalvaListaPiatti";
             this.btnSalvaListaPiatti.Size = new System.Drawing.Size(95, 51);
             this.btnSalvaListaPiatti.TabIndex = 1;
@@ -197,15 +207,27 @@
             // 
             // gdrListaPiatti
             // 
+            this.gdrListaPiatti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gdrListaPiatti.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdrListaPiatti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdrListaPiatti.Location = new System.Drawing.Point(3, 84);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle1;
+            this.gdrListaPiatti.Location = new System.Drawing.Point(5, 79);
             this.gdrListaPiatti.Name = "gdrListaPiatti";
             this.gdrListaPiatti.RowTemplate.Height = 24;
-            this.gdrListaPiatti.Size = new System.Drawing.Size(886, 330);
+            this.gdrListaPiatti.Size = new System.Drawing.Size(1396, 504);
             this.gdrListaPiatti.TabIndex = 0;
+            this.gdrListaPiatti.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdrListaPiatti_CellClick);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.lblCostoTotale);
             this.tabPage3.Controls.Add(this.lblTotale);
             this.tabPage3.Controls.Add(this.lblOraAttuale);
@@ -219,76 +241,111 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(895, 479);
+            this.tabPage3.Size = new System.Drawing.Size(1402, 639);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Crea comanda";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // lblCostoTotale
+            // 
+            this.lblCostoTotale.AutoSize = true;
+            this.lblCostoTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCostoTotale.Location = new System.Drawing.Point(1027, 554);
+            this.lblCostoTotale.Name = "lblCostoTotale";
+            this.lblCostoTotale.Size = new System.Drawing.Size(0, 39);
+            this.lblCostoTotale.TabIndex = 9;
+            // 
+            // lblTotale
+            // 
+            this.lblTotale.AutoSize = true;
+            this.lblTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotale.Location = new System.Drawing.Point(891, 554);
+            this.lblTotale.Name = "lblTotale";
+            this.lblTotale.Size = new System.Drawing.Size(121, 39);
+            this.lblTotale.TabIndex = 8;
+            this.lblTotale.Text = "Totale:";
+            // 
             // lblOraAttuale
             // 
             this.lblOraAttuale.AutoSize = true;
-            this.lblOraAttuale.Location = new System.Drawing.Point(107, 449);
+            this.lblOraAttuale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOraAttuale.Location = new System.Drawing.Point(650, 589);
             this.lblOraAttuale.Name = "lblOraAttuale";
-            this.lblOraAttuale.Size = new System.Drawing.Size(32, 17);
+            this.lblOraAttuale.Size = new System.Drawing.Size(73, 39);
             this.lblOraAttuale.TabIndex = 7;
             this.lblOraAttuale.Text = "Ora";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 450);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(546, 589);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 17);
+            this.label4.Size = new System.Drawing.Size(82, 39);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Ora";
+            this.label4.Text = "Ora:";
             // 
             // lblDataAttuale
             // 
             this.lblDataAttuale.AutoSize = true;
-            this.lblDataAttuale.Location = new System.Drawing.Point(104, 428);
+            this.lblDataAttuale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataAttuale.Location = new System.Drawing.Point(650, 551);
             this.lblDataAttuale.Name = "lblDataAttuale";
-            this.lblDataAttuale.Size = new System.Drawing.Size(38, 17);
+            this.lblDataAttuale.Size = new System.Drawing.Size(89, 39);
             this.lblDataAttuale.TabIndex = 5;
             this.lblDataAttuale.Text = "Data";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 429);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(546, 550);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 17);
+            this.label3.Size = new System.Drawing.Size(98, 39);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Data";
+            this.label3.Text = "Data:";
             // 
             // txtNominativo
             // 
-            this.txtNominativo.Location = new System.Drawing.Point(104, 399);
+            this.txtNominativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNominativo.Location = new System.Drawing.Point(200, 548);
             this.txtNominativo.Name = "txtNominativo";
-            this.txtNominativo.Size = new System.Drawing.Size(219, 22);
+            this.txtNominativo.Size = new System.Drawing.Size(340, 45);
             this.txtNominativo.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 399);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 550);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 17);
+            this.label2.Size = new System.Drawing.Size(197, 39);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Nominativo";
+            this.label2.Text = "Nominativo:";
             // 
             // gdvComanda
             // 
+            this.gdvComanda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gdvComanda.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdvComanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdvComanda.Location = new System.Drawing.Point(3, 55);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gdvComanda.Location = new System.Drawing.Point(13, 82);
             this.gdvComanda.Name = "gdvComanda";
             this.gdvComanda.RowTemplate.Height = 24;
-            this.gdvComanda.Size = new System.Drawing.Size(892, 325);
+            this.gdvComanda.Size = new System.Drawing.Size(1365, 459);
             this.gdvComanda.TabIndex = 1;
             this.gdvComanda.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvComanda_CellEndEdit);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(742, 386);
+            this.button1.Location = new System.Drawing.Point(1230, 550);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 61);
             this.button1.TabIndex = 0;
@@ -307,28 +364,22 @@
             this.printPreviewDialog1.Visible = false;
             this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
-            // lblTotale
+            // label5
             // 
-            this.lblTotale.AutoSize = true;
-            this.lblTotale.Location = new System.Drawing.Point(502, 408);
-            this.lblTotale.Name = "lblTotale";
-            this.lblTotale.Size = new System.Drawing.Size(48, 17);
-            this.lblTotale.TabIndex = 8;
-            this.lblTotale.Text = "Totale";
-            // 
-            // lblCostoTotale
-            // 
-            this.lblCostoTotale.AutoSize = true;
-            this.lblCostoTotale.Location = new System.Drawing.Point(557, 407);
-            this.lblCostoTotale.Name = "lblCostoTotale";
-            this.lblCostoTotale.Size = new System.Drawing.Size(0, 17);
-            this.lblCostoTotale.TabIndex = 9;
+            this.label5.AutoSize = true;
+            this.label5.CausesValidation = false;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(554, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(332, 76);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Lista piatti";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 513);
+            this.ClientSize = new System.Drawing.Size(1425, 685);
             this.Controls.Add(this.tabGestioneComande);
             this.Name = "Form1";
             this.Text = "Gestione comande";
@@ -373,6 +424,7 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Label lblCostoTotale;
         private System.Windows.Forms.Label lblTotale;
+        private System.Windows.Forms.Label label5;
     }
 }
 

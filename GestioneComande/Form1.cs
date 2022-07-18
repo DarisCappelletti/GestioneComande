@@ -24,6 +24,7 @@ namespace GestioneComande
         {
             InitializeComponent();
             loadListaPiatti();
+            setDeleteButton();
             this.WindowState = FormWindowState.Maximized;
             tabGestioneComande.SizeMode = TabSizeMode.Fixed;
             tabGestioneComande.ItemSize = 
@@ -49,18 +50,20 @@ namespace GestioneComande
                     Piatto objPiatto = new Piatto();
                     objPiatto.Tipologia = txtTipologia.Text;
                     objPiatto.Costo = Convert.ToDecimal(txtCosto.Text);
-                    objPiatto.Quantita = Convert.ToInt16(txtQuantita.Text);
+                    objPiatto.Quantita = Convert.ToInt32(txtQuantita.Text);
 
                     // Create context object and then save company data.  
                     context.Piatto.Add(objPiatto);
                     context.SaveChanges();
 
                     loadListaPiatti();
+
+                    MessageBox.Show("Piatto \"" + txtTipologia.Text + "\" creato correttamente.", "Messaggio");
                 }
             }
             catch (Exception ex)
             {
-                // Handle any exception.
+                MessageBox.Show("Errore durante la creazione del piatto.", "Errore");
             }
         }
 
@@ -75,6 +78,16 @@ namespace GestioneComande
         {
             var context = new Model.Model();
             gdrListaPiatti.DataSource = context.Piatto.ToList();
+        }
+
+        private void setDeleteButton()
+        {
+            var deleteButton = new DataGridViewButtonColumn();
+            deleteButton.Name = "btnElimina";
+            deleteButton.HeaderText = "Elimina";
+            deleteButton.Text = "Elimina";
+            deleteButton.UseColumnTextForButtonValue = true;
+            this.gdrListaPiatti.Columns.Add(deleteButton);
         }
 
         private void loadComanda()
@@ -105,28 +118,76 @@ namespace GestioneComande
             gdvComanda.DataSource = dt;
         }
 
+        private void gdrListaPiatti_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var context = new Model.Model();
+                //if click is on new row or header row
+                if (e.RowIndex == gdrListaPiatti.NewRowIndex || e.RowIndex < 0)
+                    return;
+
+                //Check if click is on specific column 
+                //if (e.ColumnIndex == gdrListaPiatti.Columns["btnElimina"].Index)
+                string columnName = this.gdrListaPiatti.Columns[e.ColumnIndex].Name;
+                if (columnName == "btnElimina")
+                {
+                    var id = gdrListaPiatti.Rows[e.RowIndex].Cells["id"].Value;
+
+                    if (id != null)
+                    {
+                        var idPiatto = Convert.ToInt32(id);
+                        var piatto = context.Piatto.FirstOrDefault(x => x.ID == idPiatto);
+
+                        context.Piatto.Remove(piatto);
+                        context.SaveChanges();
+
+                        gdrListaPiatti.Columns.Clear();
+
+                        loadListaPiatti();
+
+                        setDeleteButton();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errore durante l'eliminazione del piatto.", "Errore");
+            }
+        }
+
         private void btnSalvaListaPiatti_Click(object sender, EventArgs e)
         {
-            var context = new Model.Model();
-            this.gdrListaPiatti.EndEdit();
-            this.gdrListaPiatti.Update();
-
-            foreach(DataGridViewRow riga in gdrListaPiatti.Rows)
+            try
             {
-                var id = Convert.ToInt16(riga.Cells["Id"].Value);
-                var tipologia = riga.Cells["Tipologia"].Value.ToString();
-                var quantita = Convert.ToInt16(riga.Cells["Quantita"].Value);
-                var costo = Convert.ToDecimal(riga.Cells["Costo"].Value);
-                //Piatto piatto = riga as Model.Piatto;
-                ////Piatto cust = row.DataBoundItem as Piatto;
+                var context = new Model.Model();
+                this.gdrListaPiatti.EndEdit();
+                this.gdrListaPiatti.Update();
 
-                var piattoDB = context.Piatto.SingleOrDefault(x => x.ID == id);
-                piattoDB.Tipologia = tipologia.ToString();
-                piattoDB.Costo = costo;
-                piattoDB.Quantita = quantita;
+                foreach (DataGridViewRow riga in gdrListaPiatti.Rows)
+                {
+
+                    var id = Convert.ToInt32(riga.Cells["Id"].Value);
+                    var tipologia = riga.Cells["Tipologia"].Value.ToString();
+                    var quantita = Convert.ToInt32(riga.Cells["Quantita"].Value);
+                    var costo = Convert.ToDecimal(riga.Cells["Costo"].Value);
+                    //Piatto piatto = riga as Model.Piatto;
+                    ////Piatto cust = row.DataBoundItem as Piatto;
+
+                    var piattoDB = context.Piatto.SingleOrDefault(x => x.ID == id);
+                    piattoDB.Tipologia = tipologia.ToString();
+                    piattoDB.Costo = costo;
+                    piattoDB.Quantita = quantita;
+                }
+
+                context.SaveChanges();
+
+                MessageBox.Show("Lista aggiornata correttamente.", "Messaggio");
             }
-
-            context.SaveChanges();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errore durante l'aggiornamento della lista dei piatti.", "Errore");
+            }
         }
 
         private void tabGestioneComande_SelectedIndexchanged(object sender, EventArgs e)
