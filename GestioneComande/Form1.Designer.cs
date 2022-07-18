@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Crea = new System.Windows.Forms.Button();
             this.txtTipologia = new System.Windows.Forms.TextBox();
@@ -58,12 +58,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.gdvComandeOggi = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabGestioneComande.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrListaPiatti)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvComanda)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gdvComandeOggi)).BeginInit();
             this.SuspendLayout();
             // 
             // Crea
@@ -146,6 +151,7 @@
             this.tabGestioneComande.Controls.Add(this.tabPage1);
             this.tabGestioneComande.Controls.Add(this.tabPage2);
             this.tabGestioneComande.Controls.Add(this.tabPage3);
+            this.tabGestioneComande.Controls.Add(this.tabPage4);
             this.tabGestioneComande.Location = new System.Drawing.Point(3, 12);
             this.tabGestioneComande.Name = "tabGestioneComande";
             this.tabGestioneComande.SelectedIndex = 0;
@@ -210,14 +216,14 @@
             this.gdrListaPiatti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gdrListaPiatti.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdrListaPiatti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle6;
             this.gdrListaPiatti.Location = new System.Drawing.Point(5, 79);
             this.gdrListaPiatti.Name = "gdrListaPiatti";
             this.gdrListaPiatti.RowTemplate.Height = 24;
@@ -328,14 +334,14 @@
             this.gdvComanda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gdvComanda.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdvComanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle5;
             this.gdvComanda.Location = new System.Drawing.Point(13, 82);
             this.gdvComanda.Name = "gdvComanda";
             this.gdvComanda.RowTemplate.Height = 24;
@@ -369,11 +375,42 @@
             this.label5.AutoSize = true;
             this.label5.CausesValidation = false;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(554, 3);
+            this.label5.Location = new System.Drawing.Point(463, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(332, 76);
+            this.label5.Size = new System.Drawing.Size(470, 76);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Lista piatti";
+            this.label5.Text = "Crea comanda";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label6);
+            this.tabPage4.Controls.Add(this.gdvComandeOggi);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1402, 639);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Visualizza comande";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // gdvComandeOggi
+            // 
+            this.gdvComandeOggi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gdvComandeOggi.Location = new System.Drawing.Point(8, 113);
+            this.gdvComandeOggi.Name = "gdvComandeOggi";
+            this.gdvComandeOggi.RowTemplate.Height = 24;
+            this.gdvComandeOggi.Size = new System.Drawing.Size(1391, 520);
+            this.gdvComandeOggi.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(530, 41);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(348, 39);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Lista comande di oggi";
             // 
             // Form1
             // 
@@ -392,6 +429,9 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvComanda)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gdvComandeOggi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,6 +465,9 @@
         private System.Windows.Forms.Label lblCostoTotale;
         private System.Windows.Forms.Label lblTotale;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView gdvComandeOggi;
     }
 }
 

@@ -82,6 +82,7 @@
     <Compile Include="ListaPiatti.Designer.cs">
       <DependentUpon>ListaPiatti.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Comanda.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Piatto.cs" />
     <Compile Include="Program.cs" />

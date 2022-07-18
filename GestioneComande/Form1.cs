@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using System.Data.Entity.Core.Objects;
 
 namespace GestioneComande
 {
@@ -118,6 +119,24 @@ namespace GestioneComande
             gdvComanda.DataSource = dt;
         }
 
+        private void loadComandeOggi()
+        {
+            var dt = new DataTable();
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("Descrizione", typeof(string));
+            dt.Columns.Add("Data", typeof(DateTime));
+
+            var context = new Model.Model();
+
+            var comandeOggi = context.Comanda.Where(x => EntityFunctions.TruncateTime(x.Data) == DateTime.Today).ToList();
+            foreach (var comanda in comandeOggi)
+            {
+                dt.Rows.Add(comanda.ID, comanda.Descrizione, comanda.Data);
+            }
+
+            gdvComandeOggi.DataSource = dt;
+        }
+
         private void gdrListaPiatti_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -202,6 +221,9 @@ namespace GestioneComande
                 case 2:
                     loadComanda();
                     break;
+                case 3:
+                    loadComandeOggi();
+                    break;
             }
         }
 
@@ -219,6 +241,8 @@ namespace GestioneComande
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string descrizioneComanda = "";
+
             string html = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "template-pdf.html");
 
             // imposto l'oggetto
@@ -255,6 +279,7 @@ namespace GestioneComande
                 string costo = Convert.ToString(item.Cells["Costo"].Value);
                 string quantita = Convert.ToString(item.Cells["Quantità"].Value);
 
+                descrizioneComanda += "Piatto: " + tipologia + ", Costo: " + costo + ", Quantità: " + quantita + " - ";
 
                 table +=
                         "<tr><td>" +
@@ -278,6 +303,22 @@ namespace GestioneComande
             Print(html);
 
             rimuoviQuantita();
+            creaComandaSulDb(descrizioneComanda);
+        }
+
+        private void creaComandaSulDb(string descrizioneComanda)
+        {
+            var context = new Model.Model();
+            decimal costo = Convert.ToDecimal(lblCostoTotale.Text);
+            var comanda = new Comanda()
+            {
+                Descrizione = descrizioneComanda,
+                Data = DateTime.Now,
+                Totale = costo
+            };
+
+            context.Comanda.Add(comanda);
+            context.SaveChanges();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
