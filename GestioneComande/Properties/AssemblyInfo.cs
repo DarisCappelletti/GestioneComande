@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GestioneComande")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("App per la gestione delle comande")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Daris Cappelletti")]
 [assembly: AssemblyProduct("GestioneComande")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]

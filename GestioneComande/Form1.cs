@@ -243,7 +243,7 @@ namespace GestioneComande
         {
             string descrizioneComanda = "";
 
-            string html = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "template-pdf.html");
+            string html = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "HtmlFile/template-pdf.html");
 
             // imposto l'oggetto
             html = html.Replace("{pratica-titolo}", "1");
