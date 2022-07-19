@@ -241,72 +241,90 @@ namespace GestioneComande
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string descrizioneComanda = "";
-
-            string html = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "HtmlFile/template-pdf.html");
-
-            // imposto l'oggetto
-            html = html.Replace("{pratica-titolo}", "1");
-
-            // inserisco il footer - richiedente e data
-            string footerUtente = txtNominativo.Text;
-            string footerData =
-                DateTime.Now.ToShortDateString();
-            string footerOra =
-                DateTime.Now.ToShortTimeString();
-            html =
-                html
-                .Replace("{footer-utente}", footerUtente)
-                .Replace("{footer-data}", footerData)
-                .Replace("{footer-ora}", footerOra);
-
-            string table = "";
-
-            // apro la tabella
-            table +=
-            "<h4>Ordine</h4>" +
-            "<table class=\"tabella-pdf\">" +
-            "<thead>" +
-            "<tr><th>Tipologia</th>" +
-            "<th>Costo</th>" +
-            "<th>Quantità</th>" +
-            "</tr>" +
-            "</thead><tbody>";
-            
-            foreach (DataGridViewRow item in this.gdvComanda.Rows)
+            try
             {
-                string tipologia = Convert.ToString(item.Cells["Piatto"].Value);
-                string costo = Convert.ToString(item.Cells["Costo"].Value);
-                string quantita = Convert.ToString(item.Cells["Quantità"].Value);
+                if (lblCostoTotale.Text == "")
+                {
+                    MessageBox.Show("Per creare la domanda è necessario inserire almeno un piatto.", "Errore");
+                }
+                else if (txtNominativo.Text == "")
+                {
+                    MessageBox.Show("Per creare la domanda è necessario inserire il nominativo.", "Errore");
+                }
+                else
+                {
+                    string descrizioneComanda = "";
 
-                descrizioneComanda += "Piatto: " + tipologia + ", Costo: " + costo + ", Quantità: " + quantita + " - ";
+                    string html = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "HtmlFile/template-pdf.html");
+                    
+                    // inserisco il footer - richiedente e data
+                    string footerUtente = txtNominativo.Text;
+                    string footerData =
+                        DateTime.Now.ToShortDateString();
+                    string footerOra =
+                        DateTime.Now.ToShortTimeString();
+                    html =
+                        html
+                        .Replace("{footer-utente}", footerUtente)
+                        .Replace("{footer-data}", footerData)
+                        .Replace("{footer-ora}", footerOra);
 
-                table +=
-                        "<tr><td>" +
-                        tipologia +
-                        "</td><td>" +
-                        costo +
-                        "</td>" +
-                        "<td>" +
-                        quantita +
-                        "</td>" +
-                        "</tr>";
+                    string table = "";
+
+                    // apro la tabella
+                    table +=
+                    "<h4>Ordine</h4>" +
+                    "<table class=\"tabella-pdf\">" +
+                    "<thead>" +
+                    "<tr><th>Tipologia</th>" +
+                    "<th>Costo</th>" +
+                    "<th>Quantità</th>" +
+                    "</tr>" +
+                    "</thead><tbody>";
+
+                    foreach (DataGridViewRow item in this.gdvComanda.Rows)
+                    {
+                        string tipologia = Convert.ToString(item.Cells["Piatto"].Value);
+                        string costo = Convert.ToString(item.Cells["Costo"].Value);
+                        string quantita = Convert.ToString(item.Cells["Quantità"].Value);
+
+                        descrizioneComanda += "Piatto: " + tipologia + ", Costo: " + costo + ", Quantità: " + quantita + " - ";
+
+                        table +=
+                                "<tr><td>" +
+                                tipologia +
+                                "</td><td>" +
+                                costo +
+                                "</td>" +
+                                "<td>" +
+                                quantita +
+                                "</td>" +
+                                "</tr>";
+                    }
+
+                    table += "<tr><td><strong>Totale</strong></td><td></td><td>" + lblCostoTotale.Text + " euro</td></tr>";
+
+                    // chiudo la tabella
+                    table += "</tbody></table>";
+
+                    html = html.Replace("{opzionali}", table);
+
+                    // imposto l'oggetto
+                    var comandaID = creaComandaSulDb(descrizioneComanda);
+                    html = html.Replace("{pratica-titolo}", comandaID.ToString());
+
+                    Print(html);
+
+                    rimuoviQuantita();
+                }
             }
-
-            table += "<tr><td><strong>Totale</strong></td><td></td><td>" + lblCostoTotale.Text + " euro</td></tr>";
-
-            // chiudo la tabella
-            table += "</tbody></table>";
-
-            html = html.Replace("{opzionali}", table);
-            
-            Print(html);
-
-            rimuoviQuantita();
-            creaComandaSulDb(descrizioneComanda);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errore durante la creazione della comanda.", "Errore");
+            }
         }
 
-        private void creaComandaSulDb(string descrizioneComanda)
+        private int creaComandaSulDb(string descrizioneComanda)
         {
             var context = new Model.Model();
             decimal costo = Convert.ToDecimal(lblCostoTotale.Text);
@@ -319,6 +337,8 @@ namespace GestioneComande
 
             context.Comanda.Add(comanda);
             context.SaveChanges();
+
+            return comanda.ID;
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -333,20 +353,40 @@ namespace GestioneComande
 
         private void gdvComanda_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            var context = new Model.Model();
             decimal total = 0;
 
-            foreach (DataGridViewRow row in gdvComanda.Rows)
-            {
-                if(row.Cells["Costo"].Value != null &&
-                    row.Cells["Costo"].Value.ToString() != "" &&
-                    row.Cells["Quantità"].Value != null && 
-                    row.Cells["Quantità"].Value.ToString() != "")
-                {
-                    total += (decimal)row.Cells["Costo"].Value * (int)row.Cells["Quantità"].Value;
-                }
-            }
+            var id = gdvComanda.Rows[e.RowIndex].Cells["id"].Value != null 
+                ? Convert.ToInt32(gdvComanda.Rows[e.RowIndex].Cells["id"].Value) 
+                : (int?)null;
+            var quantità = gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value != null
+                ? Convert.ToInt32(gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value)
+                : (int?)null;
 
-            lblCostoTotale.Text = total.ToString();
+            if (id != null &&
+                gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value != null && 
+                gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value.ToString() != "" &&
+                context.Piatto.FirstOrDefault(x => x.ID == id).Quantita < quantità
+                )
+            {
+                gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value = DBNull.Value;
+                MessageBox.Show("Quantità richiesta superiore a quella presente ovvero " + context.Piatto.FirstOrDefault(x => x.ID == id).Quantita, "Errore");
+            }
+            else
+            {
+                foreach (DataGridViewRow row in gdvComanda.Rows)
+                {
+                    if (row.Cells["Costo"].Value != null &&
+                        row.Cells["Costo"].Value.ToString() != "" &&
+                        row.Cells["Quantità"].Value != null &&
+                        row.Cells["Quantità"].Value.ToString() != "")
+                    {
+                        total += (decimal)row.Cells["Costo"].Value * (int)row.Cells["Quantità"].Value;
+                    }
+                }
+
+                lblCostoTotale.Text = total.ToString();
+            }
         }
 
         private void rimuoviQuantita()

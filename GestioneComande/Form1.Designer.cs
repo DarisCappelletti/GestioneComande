@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Crea = new System.Windows.Forms.Button();
             this.txtTipologia = new System.Windows.Forms.TextBox();
@@ -46,6 +46,7 @@
             this.btnSalvaListaPiatti = new System.Windows.Forms.Button();
             this.gdrListaPiatti = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblCostoTotale = new System.Windows.Forms.Label();
             this.lblTotale = new System.Windows.Forms.Label();
             this.lblOraAttuale = new System.Windows.Forms.Label();
@@ -56,11 +57,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gdvComanda = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.label5 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.gdvComandeOggi = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
+            this.gdvComandeOggi = new System.Windows.Forms.DataGridView();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabGestioneComande.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -74,7 +80,7 @@
             // Crea
             // 
             this.Crea.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Crea.Location = new System.Drawing.Point(634, 361);
+            this.Crea.Location = new System.Drawing.Point(608, 393);
             this.Crea.Name = "Crea";
             this.Crea.Size = new System.Drawing.Size(164, 56);
             this.Crea.TabIndex = 0;
@@ -85,7 +91,7 @@
             // txtTipologia
             // 
             this.txtTipologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipologia.Location = new System.Drawing.Point(562, 145);
+            this.txtTipologia.Location = new System.Drawing.Point(558, 149);
             this.txtTipologia.Name = "txtTipologia";
             this.txtTipologia.Size = new System.Drawing.Size(311, 45);
             this.txtTipologia.TabIndex = 1;
@@ -94,7 +100,7 @@
             // 
             this.lblTipologia.AutoSize = true;
             this.lblTipologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipologia.Location = new System.Drawing.Point(387, 145);
+            this.lblTipologia.Location = new System.Drawing.Point(386, 155);
             this.lblTipologia.Name = "lblTipologia";
             this.lblTipologia.Size = new System.Drawing.Size(166, 39);
             this.lblTipologia.TabIndex = 2;
@@ -104,7 +110,7 @@
             // 
             this.lblQuantità.AutoSize = true;
             this.lblQuantità.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantità.Location = new System.Drawing.Point(387, 218);
+            this.lblQuantità.Location = new System.Drawing.Point(386, 235);
             this.lblQuantità.Name = "lblQuantità";
             this.lblQuantità.Size = new System.Drawing.Size(154, 39);
             this.lblQuantità.TabIndex = 4;
@@ -113,7 +119,7 @@
             // txtQuantita
             // 
             this.txtQuantita.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantita.Location = new System.Drawing.Point(562, 212);
+            this.txtQuantita.Location = new System.Drawing.Point(558, 232);
             this.txtQuantita.Name = "txtQuantita";
             this.txtQuantita.Size = new System.Drawing.Size(311, 45);
             this.txtQuantita.TabIndex = 3;
@@ -122,7 +128,7 @@
             // 
             this.lblCosto.AutoSize = true;
             this.lblCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCosto.Location = new System.Drawing.Point(387, 293);
+            this.lblCosto.Location = new System.Drawing.Point(386, 303);
             this.lblCosto.Name = "lblCosto";
             this.lblCosto.Size = new System.Drawing.Size(115, 39);
             this.lblCosto.TabIndex = 6;
@@ -131,7 +137,7 @@
             // txtCosto
             // 
             this.txtCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCosto.Location = new System.Drawing.Point(562, 287);
+            this.txtCosto.Location = new System.Drawing.Point(558, 303);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(311, 45);
             this.txtCosto.TabIndex = 5;
@@ -161,6 +167,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.lblTitoloCreaPiatto);
             this.tabPage1.Controls.Add(this.Crea);
             this.tabPage1.Controls.Add(this.lblCosto);
@@ -179,6 +189,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.btnSalvaListaPiatti);
             this.tabPage2.Controls.Add(this.gdrListaPiatti);
@@ -203,7 +214,7 @@
             // 
             // btnSalvaListaPiatti
             // 
-            this.btnSalvaListaPiatti.Location = new System.Drawing.Point(682, 585);
+            this.btnSalvaListaPiatti.Location = new System.Drawing.Point(680, 588);
             this.btnSalvaListaPiatti.Name = "btnSalvaListaPiatti";
             this.btnSalvaListaPiatti.Size = new System.Drawing.Size(95, 51);
             this.btnSalvaListaPiatti.TabIndex = 1;
@@ -216,23 +227,24 @@
             this.gdrListaPiatti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gdrListaPiatti.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdrListaPiatti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle6;
-            this.gdrListaPiatti.Location = new System.Drawing.Point(5, 79);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle1;
+            this.gdrListaPiatti.Location = new System.Drawing.Point(20, 91);
             this.gdrListaPiatti.Name = "gdrListaPiatti";
             this.gdrListaPiatti.RowTemplate.Height = 24;
-            this.gdrListaPiatti.Size = new System.Drawing.Size(1396, 504);
+            this.gdrListaPiatti.Size = new System.Drawing.Size(1386, 495);
             this.gdrListaPiatti.TabIndex = 0;
             this.gdrListaPiatti.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdrListaPiatti_CellClick);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.lblCostoTotale);
             this.tabPage3.Controls.Add(this.lblTotale);
@@ -252,11 +264,22 @@
             this.tabPage3.Text = "Crea comanda";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.CausesValidation = false;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(469, -9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(470, 76);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Crea comanda";
+            // 
             // lblCostoTotale
             // 
             this.lblCostoTotale.AutoSize = true;
             this.lblCostoTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCostoTotale.Location = new System.Drawing.Point(1027, 554);
+            this.lblCostoTotale.Location = new System.Drawing.Point(1027, 558);
             this.lblCostoTotale.Name = "lblCostoTotale";
             this.lblCostoTotale.Size = new System.Drawing.Size(0, 39);
             this.lblCostoTotale.TabIndex = 9;
@@ -265,7 +288,7 @@
             // 
             this.lblTotale.AutoSize = true;
             this.lblTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotale.Location = new System.Drawing.Point(891, 554);
+            this.lblTotale.Location = new System.Drawing.Point(891, 558);
             this.lblTotale.Name = "lblTotale";
             this.lblTotale.Size = new System.Drawing.Size(121, 39);
             this.lblTotale.TabIndex = 8;
@@ -275,7 +298,7 @@
             // 
             this.lblOraAttuale.AutoSize = true;
             this.lblOraAttuale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOraAttuale.Location = new System.Drawing.Point(650, 589);
+            this.lblOraAttuale.Location = new System.Drawing.Point(665, 593);
             this.lblOraAttuale.Name = "lblOraAttuale";
             this.lblOraAttuale.Size = new System.Drawing.Size(73, 39);
             this.lblOraAttuale.TabIndex = 7;
@@ -285,7 +308,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(546, 589);
+            this.label4.Location = new System.Drawing.Point(561, 593);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 39);
             this.label4.TabIndex = 6;
@@ -295,7 +318,7 @@
             // 
             this.lblDataAttuale.AutoSize = true;
             this.lblDataAttuale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataAttuale.Location = new System.Drawing.Point(650, 551);
+            this.lblDataAttuale.Location = new System.Drawing.Point(665, 555);
             this.lblDataAttuale.Name = "lblDataAttuale";
             this.lblDataAttuale.Size = new System.Drawing.Size(89, 39);
             this.lblDataAttuale.TabIndex = 5;
@@ -305,7 +328,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(546, 550);
+            this.label3.Location = new System.Drawing.Point(561, 554);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 39);
             this.label3.TabIndex = 4;
@@ -314,7 +337,7 @@
             // txtNominativo
             // 
             this.txtNominativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNominativo.Location = new System.Drawing.Point(200, 548);
+            this.txtNominativo.Location = new System.Drawing.Point(209, 552);
             this.txtNominativo.Name = "txtNominativo";
             this.txtNominativo.Size = new System.Drawing.Size(340, 45);
             this.txtNominativo.TabIndex = 3;
@@ -323,7 +346,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 550);
+            this.label2.Location = new System.Drawing.Point(6, 554);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 39);
             this.label2.TabIndex = 2;
@@ -334,14 +357,14 @@
             this.gdvComanda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gdvComanda.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdvComanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle2;
             this.gdvComanda.Location = new System.Drawing.Point(13, 82);
             this.gdvComanda.Name = "gdvComanda";
             this.gdvComanda.RowTemplate.Height = 24;
@@ -359,28 +382,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.CausesValidation = false;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(463, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(470, 76);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Crea comanda";
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.label6);
@@ -393,15 +394,6 @@
             this.tabPage4.Text = "Visualizza comande";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // gdvComandeOggi
-            // 
-            this.gdvComandeOggi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdvComandeOggi.Location = new System.Drawing.Point(8, 113);
-            this.gdvComandeOggi.Name = "gdvComandeOggi";
-            this.gdvComandeOggi.RowTemplate.Height = 24;
-            this.gdvComandeOggi.Size = new System.Drawing.Size(1391, 520);
-            this.gdvComandeOggi.TabIndex = 0;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -411,6 +403,83 @@
             this.label6.Size = new System.Drawing.Size(348, 39);
             this.label6.TabIndex = 1;
             this.label6.Text = "Lista comande di oggi";
+            // 
+            // gdvComandeOggi
+            // 
+            this.gdvComandeOggi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gdvComandeOggi.Location = new System.Drawing.Point(8, 113);
+            this.gdvComandeOggi.Name = "gdvComandeOggi";
+            this.gdvComandeOggi.RowTemplate.Height = 24;
+            this.gdvComandeOggi.Size = new System.Drawing.Size(1391, 520);
+            this.gdvComandeOggi.TabIndex = 0;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(558, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(170, 17);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Inserisci il nome del piatto\r\n";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(558, 280);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(200, 17);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Inserisci la quantità disponibile";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(559, 351);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(169, 17);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Inserisci il costo del piatto";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(359, 100);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(689, 17);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Questa funzione permette di creare un piatto che sarà poi visualizzato durante la" +
+    " creazione di una comanda";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(1218, 17);
+            this.label11.TabIndex = 3;
+            this.label11.Text = resources.GetString("label11.Text");
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 62);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(1125, 17);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Questa funzione permette di creare una comanda. Imposta la quantità desiderata ed" +
+    " in automatico verrà calcolato il totale. Cliccare sul pulsante \"Stampa\" per cre" +
+    "are la comanda.";
             // 
             // Form1
             // 
@@ -468,6 +537,12 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView gdvComandeOggi;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 
