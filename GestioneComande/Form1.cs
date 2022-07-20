@@ -20,6 +20,7 @@ namespace GestioneComande
     public partial class Form1 : Form
     {
         Bitmap memoryImage;
+        WebBrowser webBrowser = new WebBrowser();
 
         public Form1()
         {
@@ -32,12 +33,31 @@ namespace GestioneComande
                 new Size((tabGestioneComande.Width / tabGestioneComande.TabPages.Count) - 1, tabGestioneComande.ItemSize.Height);
         }
         
-        //Hook to form or parent container Resize event, either Resize or ResizeEnd.
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             tabGestioneComande.ItemSize = 
                 new Size((tabGestioneComande.Width / tabGestioneComande.TabPages.Count) - 1, tabGestioneComande.ItemSize.Height);
         }
+
+        private void tabGestioneComande_SelectedIndexchanged(object sender, EventArgs e)
+        {
+            switch ((sender as TabControl).SelectedIndex)
+            {
+                case 0:
+                    // Do nothing here (let's suppose that TabPage index 0 is the address information which is already loaded.
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    loadComanda();
+                    break;
+                case 3:
+                    loadComandeOggi();
+                    break;
+            }
+        }
+
+        // TAB CREA PIATTO
 
         private void Crea_Click(object sender, EventArgs e)
         {            
@@ -75,6 +95,8 @@ namespace GestioneComande
             form1.Show();
         }
 
+        // TAB LISTA PIATTI
+
         private void loadListaPiatti()
         {
             var context = new Model.Model();
@@ -90,59 +112,6 @@ namespace GestioneComande
             deleteButton.Text = "Elimina";
             deleteButton.UseColumnTextForButtonValue = true;
             this.gdrListaPiatti.Columns.Add(deleteButton);
-        }
-
-        private void loadComanda()
-        {
-            lblCostoTotale.Text = "";
-            lblDataAttuale.Text = DateTime.Now.ToShortDateString();
-            lblOraAttuale.Text = DateTime.Now.ToShortTimeString();
-            var dt = new DataTable();
-            dt.Columns.Add("ID", typeof(string));
-            dt.Columns.Add("Piatto", typeof(string));
-            dt.Columns.Add("Costo", typeof(decimal));
-            dt.Columns.Add("Quantità", typeof(int));
-
-            var context = new Model.Model();
-            
-            int space = 20;
-            foreach (var piatto in context.Piatto.ToList())
-            {
-                var labelTipologia = new Label() { Name = "lbl" + piatto.Tipologia, Text = piatto.Tipologia };
-                var labelCosto = new Label() { Name = "lbl" + piatto.Costo, Text = piatto.Costo.ToString() };
-                var labelQuantita = new Label() { Name = "lbl" + piatto.Quantita, Text = piatto.Quantita.ToString() };
-                //var dropdown = new ComboBox() { Name = "ddl" + piatto.Tipologia, Text = "Seleziona la quantità" };
-
-                int n = piatto.Quantita;
-
-                dt.Rows.Add(piatto.ID, piatto.Tipologia, piatto.Costo);
-            }
-
-            gdvComanda.DataSource = dt;
-            gdvComanda.Columns["ID"].ReadOnly = true;
-        }
-
-        private void loadComandeOggi()
-        {
-            var dt = new DataTable();
-            dt.Columns.Add("ID", typeof(string));
-            dt.Columns.Add("Descrizione", typeof(string));
-            dt.Columns.Add("Totale", typeof(decimal));
-            dt.Columns.Add("Data", typeof(DateTime));
-
-            var context = new Model.Model();
-
-            var comandeOggi = context.Comanda.Where(x => EntityFunctions.TruncateTime(x.Data) == DateTime.Today).ToList();
-            foreach (var comanda in comandeOggi)
-            {
-                dt.Rows.Add(comanda.ID, comanda.Descrizione, comanda.Totale, comanda.Data);
-            }
-
-            gdvComandeOggi.DataSource = dt;
-            gdvComandeOggi.Columns["ID"].ReadOnly = true;
-            gdvComandeOggi.Columns["Descrizione"].ReadOnly = true;
-            gdvComandeOggi.Columns["Totale"].ReadOnly = true;
-            gdvComandeOggi.Columns["Data"].ReadOnly = true;
         }
 
         private void gdrListaPiatti_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -217,34 +186,74 @@ namespace GestioneComande
             }
         }
 
-        private void tabGestioneComande_SelectedIndexchanged(object sender, EventArgs e)
+        // TAB COMANDA
+
+        private void loadComanda()
         {
-            switch ((sender as TabControl).SelectedIndex)
+            lblCostoTotale.Text = "";
+            lblDataAttuale.Text = DateTime.Now.ToShortDateString();
+            lblOraAttuale.Text = DateTime.Now.ToShortTimeString();
+            var dt = new DataTable();
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("Piatto", typeof(string));
+            dt.Columns.Add("Costo", typeof(decimal));
+            dt.Columns.Add("Quantità", typeof(int));
+
+            var context = new Model.Model();
+            
+            int space = 20;
+            foreach (var piatto in context.Piatto.ToList())
             {
-                case 0:
-                    // Do nothing here (let's suppose that TabPage index 0 is the address information which is already loaded.
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    loadComanda();
-                    break;
-                case 3:
-                    loadComandeOggi();
-                    break;
+                var labelTipologia = new Label() { Name = "lbl" + piatto.Tipologia, Text = piatto.Tipologia };
+                var labelCosto = new Label() { Name = "lbl" + piatto.Costo, Text = piatto.Costo.ToString() };
+                var labelQuantita = new Label() { Name = "lbl" + piatto.Quantita, Text = piatto.Quantita.ToString() };
+                //var dropdown = new ComboBox() { Name = "ddl" + piatto.Tipologia, Text = "Seleziona la quantità" };
+
+                int n = piatto.Quantita;
+
+                dt.Rows.Add(piatto.ID, piatto.Tipologia, piatto.Costo);
             }
+
+            gdvComanda.DataSource = dt;
+            gdvComanda.Columns["ID"].ReadOnly = true;
         }
 
+        private void gdvComanda_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            var context = new Model.Model();
+            decimal total = 0;
 
-        WebBrowser webBrowser = new WebBrowser();
-        void Print(string str)
-        {
-            webBrowser.DocumentText = str;
-            webBrowser.DocumentCompleted += webBrowser_DocumentCompleted;
-        }
-        void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            webBrowser.ShowPrintDialog();
+            var id = gdvComanda.Rows[e.RowIndex].Cells["id"].Value != null
+                ? Convert.ToInt32(gdvComanda.Rows[e.RowIndex].Cells["id"].Value)
+                : (int?)null;
+            var quantità = gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value != null
+                ? Convert.ToInt32(gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value)
+                : (int?)null;
+
+            if (id != null &&
+                gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value != null &&
+                gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value.ToString() != "" &&
+                context.Piatto.FirstOrDefault(x => x.ID == id).Quantita < quantità
+                )
+            {
+                gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value = DBNull.Value;
+                MessageBox.Show("Quantità richiesta superiore a quella presente ovvero " + context.Piatto.FirstOrDefault(x => x.ID == id).Quantita, "Errore");
+            }
+            else
+            {
+                foreach (DataGridViewRow row in gdvComanda.Rows)
+                {
+                    if (row.Cells["Costo"].Value != null &&
+                        row.Cells["Costo"].Value.ToString() != "" &&
+                        row.Cells["Quantità"].Value != null &&
+                        row.Cells["Quantità"].Value.ToString() != "")
+                    {
+                        total += (decimal)row.Cells["Costo"].Value * (int)row.Cells["Quantità"].Value;
+                    }
+                }
+
+                lblCostoTotale.Text = total.ToString();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -264,7 +273,7 @@ namespace GestioneComande
                     string descrizioneComanda = "";
 
                     string html = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "HtmlFile/template-pdf.html");
-                    
+
                     // inserisco il footer - richiedente e data
                     string footerUtente = txtNominativo.Text;
                     string footerData =
@@ -295,8 +304,11 @@ namespace GestioneComande
                         string tipologia = Convert.ToString(item.Cells["Piatto"].Value);
                         string costo = Convert.ToString(item.Cells["Costo"].Value);
                         string quantita = Convert.ToString(item.Cells["Quantità"].Value);
-
-                        descrizioneComanda += "Piatto: " + tipologia + ", Costo: " + costo + ", Quantità: " + quantita + " - ";
+                        
+                        if(quantita != "")
+                        {
+                            descrizioneComanda += "Piatto: " + tipologia + ", Costo: " + costo + ", Quantità: " + quantita + " - ";
+                        }
 
                         table +=
                                 "<tr><td>" +
@@ -332,6 +344,17 @@ namespace GestioneComande
             }
         }
 
+        void Print(string str)
+        {
+            webBrowser.DocumentText = str;
+            webBrowser.DocumentCompleted += webBrowser_DocumentCompleted;
+        }
+
+        void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            webBrowser.ShowPrintDialog();
+        }
+        
         private int creaComandaSulDb(string descrizioneComanda)
         {
             var context = new Model.Model();
@@ -358,45 +381,7 @@ namespace GestioneComande
         {
             //e.Graphics.DrawImage(memoryImage, 0, 0);
         }
-
-        private void gdvComanda_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            var context = new Model.Model();
-            decimal total = 0;
-
-            var id = gdvComanda.Rows[e.RowIndex].Cells["id"].Value != null 
-                ? Convert.ToInt32(gdvComanda.Rows[e.RowIndex].Cells["id"].Value) 
-                : (int?)null;
-            var quantità = gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value != null
-                ? Convert.ToInt32(gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value)
-                : (int?)null;
-
-            if (id != null &&
-                gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value != null && 
-                gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value.ToString() != "" &&
-                context.Piatto.FirstOrDefault(x => x.ID == id).Quantita < quantità
-                )
-            {
-                gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value = DBNull.Value;
-                MessageBox.Show("Quantità richiesta superiore a quella presente ovvero " + context.Piatto.FirstOrDefault(x => x.ID == id).Quantita, "Errore");
-            }
-            else
-            {
-                foreach (DataGridViewRow row in gdvComanda.Rows)
-                {
-                    if (row.Cells["Costo"].Value != null &&
-                        row.Cells["Costo"].Value.ToString() != "" &&
-                        row.Cells["Quantità"].Value != null &&
-                        row.Cells["Quantità"].Value.ToString() != "")
-                    {
-                        total += (decimal)row.Cells["Costo"].Value * (int)row.Cells["Quantità"].Value;
-                    }
-                }
-
-                lblCostoTotale.Text = total.ToString();
-            }
-        }
-
+        
         private void rimuoviQuantita()
         {
             var context = new Model.Model();
@@ -404,9 +389,9 @@ namespace GestioneComande
             foreach (DataGridViewRow row in this.gdvComanda.Rows)
             {
 
-                if(row.Cells["ID"].Value != null &&
+                if (row.Cells["ID"].Value != null &&
                     row.Cells["ID"].Value.ToString() != "" &&
-                    row.Cells["Quantità"].Value != null && 
+                    row.Cells["Quantità"].Value != null &&
                     row.Cells["Quantità"].Value.ToString() != "")
                 {
                     int id = Convert.ToInt32(row.Cells["ID"].Value);
@@ -419,6 +404,31 @@ namespace GestioneComande
             }
 
             loadListaPiatti();
+        }
+
+        // TAB COMANDE OGGI
+
+        private void loadComandeOggi()
+        {
+            var dt = new DataTable();
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("Descrizione", typeof(string));
+            dt.Columns.Add("Totale", typeof(decimal));
+            dt.Columns.Add("Data", typeof(DateTime));
+
+            var context = new Model.Model();
+
+            var comandeOggi = context.Comanda.Where(x => EntityFunctions.TruncateTime(x.Data) == DateTime.Today).ToList();
+            foreach (var comanda in comandeOggi)
+            {
+                dt.Rows.Add(comanda.ID, comanda.Descrizione, comanda.Totale, comanda.Data);
+            }
+
+            gdvComandeOggi.DataSource = dt;
+            gdvComandeOggi.Columns["ID"].ReadOnly = true;
+            gdvComandeOggi.Columns["Descrizione"].ReadOnly = true;
+            gdvComandeOggi.Columns["Totale"].ReadOnly = true;
+            gdvComandeOggi.Columns["Data"].ReadOnly = true;
         }
     }
 }
