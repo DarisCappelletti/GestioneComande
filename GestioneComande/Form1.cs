@@ -94,6 +94,7 @@ namespace GestioneComande
 
         private void loadComanda()
         {
+            lblCostoTotale.Text = "";
             lblDataAttuale.Text = DateTime.Now.ToShortDateString();
             lblOraAttuale.Text = DateTime.Now.ToShortTimeString();
             var dt = new DataTable();
