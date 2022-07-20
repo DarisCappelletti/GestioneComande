@@ -79,6 +79,7 @@ namespace GestioneComande
         {
             var context = new Model.Model();
             gdrListaPiatti.DataSource = context.Piatto.ToList();
+            gdrListaPiatti.Columns["ID"].ReadOnly = true;
         }
 
         private void setDeleteButton()
@@ -117,6 +118,7 @@ namespace GestioneComande
             }
 
             gdvComanda.DataSource = dt;
+            gdvComanda.Columns["ID"].ReadOnly = true;
         }
 
         private void loadComandeOggi()
@@ -124,6 +126,7 @@ namespace GestioneComande
             var dt = new DataTable();
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("Descrizione", typeof(string));
+            dt.Columns.Add("Totale", typeof(decimal));
             dt.Columns.Add("Data", typeof(DateTime));
 
             var context = new Model.Model();
@@ -131,10 +134,14 @@ namespace GestioneComande
             var comandeOggi = context.Comanda.Where(x => EntityFunctions.TruncateTime(x.Data) == DateTime.Today).ToList();
             foreach (var comanda in comandeOggi)
             {
-                dt.Rows.Add(comanda.ID, comanda.Descrizione, comanda.Data);
+                dt.Rows.Add(comanda.ID, comanda.Descrizione, comanda.Totale, comanda.Data);
             }
 
             gdvComandeOggi.DataSource = dt;
+            gdvComandeOggi.Columns["ID"].ReadOnly = true;
+            gdvComandeOggi.Columns["Descrizione"].ReadOnly = true;
+            gdvComandeOggi.Columns["Totale"].ReadOnly = true;
+            gdvComandeOggi.Columns["Data"].ReadOnly = true;
         }
 
         private void gdrListaPiatti_CellClick(object sender, DataGridViewCellEventArgs e)
