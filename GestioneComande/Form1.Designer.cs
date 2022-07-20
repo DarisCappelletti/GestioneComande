@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Crea = new System.Windows.Forms.Button();
             this.txtTipologia = new System.Windows.Forms.TextBox();
             this.lblTipologia = new System.Windows.Forms.Label();
@@ -41,11 +41,17 @@
             this.lblTitoloCreaPiatto = new System.Windows.Forms.Label();
             this.tabGestioneComande = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalvaListaPiatti = new System.Windows.Forms.Button();
             this.gdrListaPiatti = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblCostoTotale = new System.Windows.Forms.Label();
             this.lblTotale = new System.Windows.Forms.Label();
@@ -56,17 +62,14 @@
             this.txtNominativo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gdvComanda = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreaComanda = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.gdvComandeOggi = new System.Windows.Forms.DataGridView();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblTotaleIncassoOggi = new System.Windows.Forms.Label();
             this.tabGestioneComande.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -187,6 +190,43 @@
             this.tabPage1.Text = "Crea piatto";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(359, 100);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(689, 17);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Questa funzione permette di creare un piatto che sarà poi visualizzato durante la" +
+    " creazione di una comanda";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(559, 351);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(169, 17);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Inserisci il costo del piatto";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(558, 280);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(200, 17);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Inserisci la quantità disponibile";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(558, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(170, 17);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Inserisci il nome del piatto\r\n";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label11);
@@ -200,6 +240,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Lista piatti";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(1218, 17);
+            this.label11.TabIndex = 3;
+            this.label11.Text = resources.GetString("label11.Text");
             // 
             // label1
             // 
@@ -227,14 +276,14 @@
             this.gdrListaPiatti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gdrListaPiatti.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdrListaPiatti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle5;
             this.gdrListaPiatti.Location = new System.Drawing.Point(20, 91);
             this.gdrListaPiatti.Name = "gdrListaPiatti";
             this.gdrListaPiatti.RowTemplate.Height = 24;
@@ -255,7 +304,7 @@
             this.tabPage3.Controls.Add(this.txtNominativo);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.gdvComanda);
-            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.btnCreaComanda);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -263,6 +312,17 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Crea comanda";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 62);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(1125, 17);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Questa funzione permette di creare una comanda. Imposta la quantità desiderata ed" +
+    " in automatico verrà calcolato il totale. Cliccare sul pulsante \"Stampa\" per cre" +
+    "are la comanda.";
             // 
             // label5
             // 
@@ -354,17 +414,18 @@
             // 
             // gdvComanda
             // 
+            this.gdvComanda.AllowUserToAddRows = false;
             this.gdvComanda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gdvComanda.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdvComanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle6;
             this.gdvComanda.Location = new System.Drawing.Point(13, 82);
             this.gdvComanda.Name = "gdvComanda";
             this.gdvComanda.RowTemplate.Height = 24;
@@ -372,18 +433,21 @@
             this.gdvComanda.TabIndex = 1;
             this.gdvComanda.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvComanda_CellEndEdit);
             // 
-            // button1
+            // btnCreaComanda
             // 
-            this.button1.Location = new System.Drawing.Point(1230, 550);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 61);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Stampa";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreaComanda.Location = new System.Drawing.Point(1230, 550);
+            this.btnCreaComanda.Name = "btnCreaComanda";
+            this.btnCreaComanda.Size = new System.Drawing.Size(147, 61);
+            this.btnCreaComanda.TabIndex = 0;
+            this.btnCreaComanda.Text = "Stampa";
+            this.btnCreaComanda.UseVisualStyleBackColor = true;
+            this.btnCreaComanda.Click += new System.EventHandler(this.btnCreaComanda_Click);
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.lblTotaleIncassoOggi);
+            this.tabPage4.Controls.Add(this.label14);
+            this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Controls.Add(this.label6);
             this.tabPage4.Controls.Add(this.gdvComandeOggi);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
@@ -398,7 +462,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(530, 41);
+            this.label6.Location = new System.Drawing.Point(529, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(348, 39);
             this.label6.TabIndex = 1;
@@ -406,9 +470,12 @@
             // 
             // gdvComandeOggi
             // 
+            this.gdvComandeOggi.AllowUserToAddRows = false;
+            this.gdvComandeOggi.AllowUserToDeleteRows = false;
             this.gdvComandeOggi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdvComandeOggi.Location = new System.Drawing.Point(8, 113);
+            this.gdvComandeOggi.Location = new System.Drawing.Point(5, 73);
             this.gdvComandeOggi.Name = "gdvComandeOggi";
+            this.gdvComandeOggi.ReadOnly = true;
             this.gdvComandeOggi.RowTemplate.Height = 24;
             this.gdvComandeOggi.Size = new System.Drawing.Size(1391, 520);
             this.gdvComandeOggi.TabIndex = 0;
@@ -424,62 +491,34 @@
             this.printPreviewDialog1.Visible = false;
             this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
-            // label7
+            // label13
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(558, 197);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(170, 17);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Inserisci il nome del piatto\r\n";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(431, 53);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(519, 17);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Lista di tutte le comande emesse nella giornata odierna con il calcolo dell\'incas" +
+    "so";
             // 
-            // label8
+            // label14
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(558, 280);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(200, 17);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Inserisci la quantità disponibile";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(24, 600);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(184, 29);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Totale incasso:";
             // 
-            // label9
+            // lblTotaleIncassoOggi
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(559, 351);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(169, 17);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Inserisci il costo del piatto";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(359, 100);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(689, 17);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Questa funzione permette di creare un piatto che sarà poi visualizzato durante la" +
-    " creazione di una comanda";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 71);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(1218, 17);
-            this.label11.TabIndex = 3;
-            this.label11.Text = resources.GetString("label11.Text");
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 62);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(1125, 17);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Questa funzione permette di creare una comanda. Imposta la quantità desiderata ed" +
-    " in automatico verrà calcolato il totale. Cliccare sul pulsante \"Stampa\" per cre" +
-    "are la comanda.";
+            this.lblTotaleIncassoOggi.AutoSize = true;
+            this.lblTotaleIncassoOggi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotaleIncassoOggi.Location = new System.Drawing.Point(214, 600);
+            this.lblTotaleIncassoOggi.Name = "lblTotaleIncassoOggi";
+            this.lblTotaleIncassoOggi.Size = new System.Drawing.Size(0, 29);
+            this.lblTotaleIncassoOggi.TabIndex = 4;
             // 
             // Form1
             // 
@@ -522,7 +561,7 @@
         private System.Windows.Forms.Button btnSalvaListaPiatti;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreaComanda;
         private System.Windows.Forms.DataGridView gdvComanda;
         private System.Windows.Forms.Label lblDataAttuale;
         private System.Windows.Forms.Label label3;
@@ -543,6 +582,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblTotaleIncassoOggi;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
     }
 }
 

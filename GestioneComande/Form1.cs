@@ -197,6 +197,7 @@ namespace GestioneComande
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("Piatto", typeof(string));
             dt.Columns.Add("Costo", typeof(decimal));
+            dt.Columns.Add("Rimaste", typeof(int));
             dt.Columns.Add("Quantità", typeof(int));
 
             var context = new Model.Model();
@@ -204,29 +205,31 @@ namespace GestioneComande
             int space = 20;
             foreach (var piatto in context.Piatto.ToList())
             {
-                var labelTipologia = new Label() { Name = "lbl" + piatto.Tipologia, Text = piatto.Tipologia };
-                var labelCosto = new Label() { Name = "lbl" + piatto.Costo, Text = piatto.Costo.ToString() };
-                var labelQuantita = new Label() { Name = "lbl" + piatto.Quantita, Text = piatto.Quantita.ToString() };
-                //var dropdown = new ComboBox() { Name = "ddl" + piatto.Tipologia, Text = "Seleziona la quantità" };
-
-                int n = piatto.Quantita;
-
-                dt.Rows.Add(piatto.ID, piatto.Tipologia, piatto.Costo);
+                dt.Rows.Add(piatto.ID, piatto.Tipologia, piatto.Costo, piatto.Quantita);
             }
 
             gdvComanda.DataSource = dt;
             gdvComanda.Columns["ID"].ReadOnly = true;
+            gdvComanda.Columns["Costo"].ReadOnly = true;
+            gdvComanda.Columns["Rimaste"].ReadOnly = true;
         }
+
+        //private void gdvComanda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    btnCreaComanda.Visible = false;
+        //}
 
         private void gdvComanda_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            btnCreaComanda.Visible = true;
             var context = new Model.Model();
             decimal total = 0;
 
-            var id = gdvComanda.Rows[e.RowIndex].Cells["id"].Value != null
+            var id = gdvComanda.Rows[e.RowIndex].Cells["id"].Value != null && gdvComanda.Rows[e.RowIndex].Cells["id"].Value.ToString() != ""
                 ? Convert.ToInt32(gdvComanda.Rows[e.RowIndex].Cells["id"].Value)
                 : (int?)null;
-            var quantità = gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value != null
+
+            var quantità = gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value != null && gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value.ToString() != ""
                 ? Convert.ToInt32(gdvComanda.Rows[e.RowIndex].Cells["Quantità"].Value)
                 : (int?)null;
 
@@ -256,7 +259,7 @@ namespace GestioneComande
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCreaComanda_Click(object sender, EventArgs e)
         {
             try
             {
@@ -336,6 +339,8 @@ namespace GestioneComande
                     Print(html);
 
                     rimuoviQuantita();
+
+                    loadComanda();
                 }
             }
             catch (Exception ex)
@@ -419,8 +424,11 @@ namespace GestioneComande
             var context = new Model.Model();
 
             var comandeOggi = context.Comanda.Where(x => EntityFunctions.TruncateTime(x.Data) == DateTime.Today).ToList();
+
+            decimal incasso = 0;
             foreach (var comanda in comandeOggi)
             {
+                incasso += comanda.Totale;
                 dt.Rows.Add(comanda.ID, comanda.Descrizione, comanda.Totale, comanda.Data);
             }
 
@@ -429,6 +437,8 @@ namespace GestioneComande
             gdvComandeOggi.Columns["Descrizione"].ReadOnly = true;
             gdvComandeOggi.Columns["Totale"].ReadOnly = true;
             gdvComandeOggi.Columns["Data"].ReadOnly = true;
+
+            lblTotaleIncassoOggi.Text = incasso.ToString() + " euro";
         }
     }
 }
