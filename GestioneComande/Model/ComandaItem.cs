@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace GestioneComande.Model
 {
-    public class Piatto
+    public class ComandaItem
     {
         [Key]
         public int ID { get; set; }
-        public string Tipologia { get; set; }
+        public int ID_Comanda { get; set; }
+        public virtual Comanda comanda { get; set; }
+        public int ID_Piatto { get; set; }
+        public virtual Piatto piatto { get; set; }
         public int Quantita { get; set; }
-        public decimal Costo { get; set; }
-        public virtual ICollection<ComandaItem> Items { get; set; }
-        public bool Attivo { get; set; }
-        public bool Eliminato { get; set; }
     }
 }
