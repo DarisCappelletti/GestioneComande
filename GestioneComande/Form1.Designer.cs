@@ -70,6 +70,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.gdvComandeOggi = new System.Windows.Forms.DataGridView();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnEsportaXls = new System.Windows.Forms.Button();
             this.tabGestioneComande.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -445,6 +446,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnEsportaXls);
             this.tabPage4.Controls.Add(this.lblTotaleIncassoOggi);
             this.tabPage4.Controls.Add(this.label14);
             this.tabPage4.Controls.Add(this.label13);
@@ -521,6 +523,16 @@
             this.printPreviewDialog1.Visible = false;
             this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
+            // btnEsportaXls
+            // 
+            this.btnEsportaXls.Location = new System.Drawing.Point(1182, 600);
+            this.btnEsportaXls.Name = "btnEsportaXls";
+            this.btnEsportaXls.Size = new System.Drawing.Size(178, 33);
+            this.btnEsportaXls.TabIndex = 5;
+            this.btnEsportaXls.Text = "Esporta file excel";
+            this.btnEsportaXls.UseVisualStyleBackColor = true;
+            this.btnEsportaXls.Click += new System.EventHandler(this.btnEsportaXls_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -586,6 +598,7 @@
         private System.Windows.Forms.Label lblTotaleIncassoOggi;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnEsportaXls;
     }
 }
 
