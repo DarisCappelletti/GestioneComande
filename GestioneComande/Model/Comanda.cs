@@ -18,6 +18,7 @@ namespace GestioneComande.Model
         public string Nominativo { get; set; }
         public string Descrizione { get; set; }
         public virtual ICollection<ComandaItem> Items { get; set; }
+        public decimal Pagato { get; set; }
         public decimal Totale { get; set; }
         public DateTime Data { get; set; }
     }
