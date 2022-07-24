@@ -19,6 +19,7 @@ namespace GestioneComande
         public Form1()
         {
             InitializeComponent();
+            loadConfigurazione();
             loadListaPiatti();
             setDeleteButton();
             setStampaButton();
@@ -39,16 +40,74 @@ namespace GestioneComande
             switch ((sender as TabControl).SelectedIndex)
             {
                 case 0:
-                    // Do nothing here (let's suppose that TabPage index 0 is the address information which is already loaded.
                     break;
                 case 1:
                     break;
                 case 2:
-                    loadComanda();
                     break;
                 case 3:
+                    loadComanda();
+                    break;
+                case 4:
                     loadComandeOggi();
                     break;
+                case 5:
+                    loadStatistiche();
+                    break;
+            }
+        }
+
+        // TAB CONFIGURAZIONE
+
+        private void loadConfigurazione()
+        {
+            if(context.Configurazione.Count() > 0)
+            {
+                var configurazione = context.Configurazione.FirstOrDefault();
+                txtIntestazione.Text = configurazione.Intestazione;
+                txtSerie.Text = configurazione.Serie;
+                txtNumeroComandaIniziale.Text = configurazione.ComandaIniziale.ToString();
+                txtOperatore.Text = configurazione.Operatore;
+            }
+        }
+
+        private void btnSalvaConfigurazione_Click(object sender, EventArgs e)
+        {
+            creaConfigurazione();
+        }
+
+        private void creaConfigurazione()
+        {
+            // Salvo la configurazione esistente
+            if (context.Configurazione.Count() > 0)
+            {
+                var configurazione = context.Configurazione.FirstOrDefault();
+                configurazione.ComandaIniziale = txtNumeroComandaIniziale.Text == "" ? 1 : Convert.ToInt32(txtNumeroComandaIniziale.Text);
+                configurazione.Intestazione = txtIntestazione.Text;
+                configurazione.Operatore = txtOperatore.Text;
+                configurazione.Serie = txtSerie.Text == "" ? "/a" : txtSerie.Text;
+
+                context.SaveChanges();
+
+                loadConfigurazione();
+
+                MessageBox.Show("Configurazione aggiornata correttamente.", "Messaggio");
+            }
+            else
+            {
+                // Creo una nuova configurazione
+                var configurazione = new Configurazione();
+                configurazione.ComandaIniziale = txtNumeroComandaIniziale.Text == "" ? 1 : Convert.ToInt32(txtNumeroComandaIniziale.Text);
+                configurazione.Intestazione = txtIntestazione.Text;
+                configurazione.Operatore = txtOperatore.Text;
+                configurazione.Serie = txtSerie.Text == "" ? "/a" : txtSerie.Text;
+
+                context.Configurazione.Add(configurazione);
+                context.SaveChanges();
+
+                loadConfigurazione();
+
+                MessageBox.Show("Configurazione creata correttamente.", "Messaggio");
             }
         }
 
@@ -71,7 +130,11 @@ namespace GestioneComande
 
                 loadListaPiatti();
 
-                MessageBox.Show("Piatto \"" + txtTipologia.Text + "\" creato correttamente.", "Messaggio");
+                txtTipologia.Text = "";
+                txtCosto.Text = "";
+                txtQuantita.Text = "";
+
+                MessageBox.Show("Piatto \"" + objPiatto.Tipologia + "\" creato correttamente.", "Messaggio");
             }
             catch (Exception ex)
             {
@@ -90,15 +153,7 @@ namespace GestioneComande
 
         private void loadListaPiatti()
         {
-            gdrListaPiatti.DataSource = context.Piatto.Where(x => !x.Eliminato)
-                //.Select(x => new {
-                //    ID = x.ID,
-                //    Tipologia = x.Tipologia,
-                //    Quantita = x.Quantita,
-                //    Costo = x.Costo,
-                //    Attivo = x.Attivo
-                //})
-                .ToList();
+            gdrListaPiatti.DataSource = context.Piatto.Where(x => !x.Eliminato).ToList();
             gdrListaPiatti.Columns["ID"].Visible = false;
             gdrListaPiatti.Columns["Eliminato"].Visible = false;
             gdrListaPiatti.Columns["Items"].Visible = false;
@@ -331,11 +386,13 @@ namespace GestioneComande
             "<tr><th>Tipologia</th>" +
             "<th>Costo</th>" +
             "<th>Quantità</th>" +
+            "<th>Parziale</th>" +
             "</tr>" +
             "</thead><tbody>";
             
             if(rows != null)
             {
+                var configurazione = context.Configurazione.FirstOrDefault();
                 // inserisco il footer - richiedente e data
                 string footerUtente = txtNominativo.Text;
                 string footerData =
@@ -344,16 +401,18 @@ namespace GestioneComande
                     DateTime.Now.ToShortTimeString();
                 html =
                     html
+                    .Replace("{pratica-intestazione}", configurazione.Intestazione)
                     .Replace("{footer-utente}", footerUtente)
                     .Replace("{footer-data}", footerData)
-                    .Replace("{footer-ora}", footerOra);
+                    .Replace("{footer-ora}", footerOra)
+                    .Replace("{pratica-operatore}", configurazione.Operatore);
 
                 foreach (DataGridViewRow item in rows)
                 {
                     string tipologia = Convert.ToString(item.Cells["Piatto"].Value);
                     string costo = Convert.ToString(item.Cells["Costo"].Value);
                     string quantita = Convert.ToString(item.Cells["Quantità"].Value);
-
+                    decimal parziale = Convert.ToDecimal(item.Cells["Costo"].Value) * Convert.ToInt32(item.Cells["Quantità"].Value);
 
                     var quantitaValore = quantita != "" ? Convert.ToInt32(item.Cells["Quantità"].Value) : 0;
 
@@ -368,28 +427,29 @@ namespace GestioneComande
                             "<td>" +
                             quantita +
                             "</td>" +
+                            "<td>" +
+                            parziale.ToString() +
+                            "</td>" +
                             "</tr>";
                     }
                 }
 
-                table += "<tr><td><strong>Totale</strong></td><td></td><td>" + lblCostoTotale.Text + " euro</td></tr>";
+                table += "<tr><td><strong>Totale</strong></td><td></td><td></td><td>" + lblCostoTotale.Text + " euro</td></tr>";
             }
             else
             {
                 // inserisco il footer - richiedente e data
-                string footerUtente = txtNominativo.Text;
-                string footerData =
-                    DateTime.Now.ToShortDateString();
-                string footerOra =
-                    DateTime.Now.ToShortTimeString();
                 html =
                     html
+                    .Replace("{pratica-intestazione}", comanda.Intestazione)
                     .Replace("{footer-utente}", comanda.Nominativo)
                     .Replace("{footer-data}", comanda.Data.ToShortDateString())
-                    .Replace("{footer-ora}", comanda.Data.ToShortTimeString());
+                    .Replace("{footer-ora}", comanda.Data.ToShortTimeString())
+                    .Replace("{pratica-operatore}", comanda.Operatore);
 
                 foreach (var item in comanda.Items)
                 {
+                    var parziale = item.Quantita * item.piatto.Costo;
                     table +=
                             "<tr><td>" +
                             item.piatto.Tipologia +
@@ -399,10 +459,13 @@ namespace GestioneComande
                             "<td>" +
                             item.Quantita +
                             "</td>" +
+                            "<td>" +
+                            parziale +
+                            "</td>" +
                             "</tr>";
                 }
 
-                table += "<tr><td><strong>Totale</strong></td><td></td><td>" + comanda.Totale + " euro</td></tr>";
+                table += "<tr><td><strong>Totale</strong></td><td></td><td></td><td>" + comanda.Totale + " euro</td></tr>";
             }
             
             // chiudo la tabella
@@ -424,9 +487,17 @@ namespace GestioneComande
             webBrowser.ShowPrintDialog();
         }
 
-        private int creaComandaSulDb(List<ComandaItem> items)
+        private string creaComandaSulDb(List<ComandaItem> items)
         {
             decimal costo = Convert.ToDecimal(lblCostoTotale.Text);
+            Configurazione configurazione = null;
+
+            if(context.Configurazione.Count() == 0)
+            {
+                creaConfigurazione();
+            }
+
+            configurazione = context.Configurazione.FirstOrDefault();
 
             var descrizione = "";
             int i = items.Count;
@@ -439,6 +510,10 @@ namespace GestioneComande
 
             var comanda = new Comanda()
             {
+                Intestazione = configurazione.Intestazione,
+                Numero = configurazione.ComandaIniziale,
+                Serie = configurazione.Serie,
+                Operatore = configurazione.Operatore,
                 Nominativo = txtNominativo.Text,
                 Descrizione = descrizione,
                 Data = DateTime.Now,
@@ -449,7 +524,15 @@ namespace GestioneComande
             context.Comanda.Add(comanda);
             context.SaveChanges();
 
-            return comanda.ID;
+            incrementaComandaIniziale(configurazione);
+
+            return comanda.Numero.ToString() + comanda.Serie;
+        }
+
+        private void incrementaComandaIniziale(Configurazione configurazione)
+        {
+            configurazione.ComandaIniziale = configurazione.ComandaIniziale + 1;
+            context.SaveChanges();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -490,7 +573,9 @@ namespace GestioneComande
         private void loadComandeOggi()
         {
             var dt = new DataTable();
-            dt.Columns.Add("Comanda", typeof(string));
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("Numero", typeof(string));
+            dt.Columns.Add("Serie", typeof(string));
             dt.Columns.Add("Nominativo", typeof(string));
             dt.Columns.Add("Descrizione", typeof(string));
             dt.Columns.Add("Totale", typeof(decimal));
@@ -505,11 +590,13 @@ namespace GestioneComande
             foreach (var comanda in comandeOggi)
             {
                 incasso += comanda.Totale;
-                dt.Rows.Add(comanda.ID, comanda.Nominativo, comanda.Descrizione, comanda.Totale, comanda.Data);
+                dt.Rows.Add(comanda.ID, comanda.Numero, comanda.Serie, comanda.Nominativo, comanda.Descrizione, comanda.Totale, comanda.Data);
             }
 
             gdvComandeOggi.DataSource = dt;
-            gdvComandeOggi.Columns["Comanda"].ReadOnly = true;
+            gdvComandeOggi.Columns["ID"].Visible = false;
+            gdvComandeOggi.Columns["Numero"].ReadOnly = true;
+            gdvComandeOggi.Columns["Serie"].ReadOnly = true;
             gdvComandeOggi.Columns["Descrizione"].ReadOnly = true;
             gdvComandeOggi.Columns["Totale"].ReadOnly = true;
             gdvComandeOggi.Columns["Data"].ReadOnly = true;
@@ -540,7 +627,7 @@ namespace GestioneComande
                 string columnName = this.gdvComandeOggi.Columns[e.ColumnIndex].Name;
                 if (columnName == "btnStampa")
                 {
-                    var id = gdvComandeOggi.Rows[e.RowIndex].Cells["Comanda"].Value;
+                    var id = gdvComandeOggi.Rows[e.RowIndex].Cells["ID"].Value;
 
                     if (id != null)
                     {
@@ -549,7 +636,7 @@ namespace GestioneComande
 
                         string html = impostaPdf(null, comanda);
 
-                        html = html.Replace("{pratica-titolo}", idComanda.ToString());
+                        html = html.Replace("{pratica-titolo}", comanda.Numero.ToString() + comanda.Serie);
 
                         Print(html);
                     }
@@ -557,7 +644,7 @@ namespace GestioneComande
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Errore durante l'eliminazione del piatto.", "Errore");
+                MessageBox.Show("Errore durante la stampa della comanda.", "Errore");
             }
         }
 
@@ -584,5 +671,50 @@ namespace GestioneComande
             CR.Select();
             xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
         }
+
+        // TAB STATISTICHE OGGI
+
+        private void loadStatistiche()
+        {
+            var piatti =
+                context.Item.Where(x => EntityFunctions.TruncateTime(x.comanda.Data) == DateTime.Today).GroupBy(x => x.piatto)
+                .Select(x => x.Key).ToList();
+
+            var piattiFinali = piatti.Select(x => new Statistiche
+            {
+                Tipologia = x.Tipologia,
+                Rimasto = x.Quantita,
+                Venduto = x.Items.Where(y => y.comanda.Data.Date == DateTime.Today && y.piatto.ID == x.ID).Sum(y => y.Quantita),
+                Totale = x.Quantita + x.Items.Where(y => y.comanda.Data.Date == DateTime.Today && y.piatto.ID == x.ID).Sum(y => y.Quantita),
+                Guadagno = x.Items.Where(y => y.comanda.Data.Date == DateTime.Today && y.piatto.ID == x.ID).Sum(y => y.Quantita) * x.Costo
+            }).ToList();
+            // Imposto la tabella
+            var dt = new DataTable();
+            dt.Columns.Add("Tipologia", typeof(string));
+            dt.Columns.Add("Totale", typeof(int));
+            dt.Columns.Add("Rimasto", typeof(int));
+            dt.Columns.Add("Venduto", typeof(int));
+            dt.Columns.Add("Guadagno", typeof(decimal));
+
+            foreach (var piatto in piattiFinali)
+            {
+                dt.Rows.Add(piatto.Tipologia, piatto.Totale, piatto.Rimasto, piatto.Venduto, piatto.Guadagno );
+            }
+
+            gdvStatistiche.DataSource = dt;
+            gdvStatistiche.Columns["Tipologia"].ReadOnly = true;
+            gdvStatistiche.Columns["Rimasto"].ReadOnly = true;
+            gdvStatistiche.Columns["Venduto"].ReadOnly = true;
+            gdvStatistiche.Columns["Totale"].ReadOnly = true;
+            gdvStatistiche.Columns["Guadagno"].ReadOnly = true;
+        }
+    }
+
+    public class Statistiche {
+        public string Tipologia { get; set; }
+        public int Rimasto { get; set; }
+        public int Venduto { get; set; }
+        public int Totale { get; set; }
+        public decimal Guadagno { get; set; }
     }
 }

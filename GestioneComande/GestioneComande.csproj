@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <PublisherName>Daris Cappelletti</PublisherName>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Model\Comanda.cs" />
     <Compile Include="Model\ComandaItem.cs" />
+    <Compile Include="Model\Configurazione.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Piatto.cs" />
     <Compile Include="Program.cs" />

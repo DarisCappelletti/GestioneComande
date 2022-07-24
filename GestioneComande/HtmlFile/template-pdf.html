@@ -18,7 +18,7 @@
 
         h2 {
             clear: both;
-            padding-top: 32px;
+            padding-top: 20px;
             text-align: left;
             color: #000000;
         }
@@ -84,6 +84,7 @@
 <body>
     <div class="container-pdf">
 
+        <h1 style="text-align: center;">{pratica-intestazione}</h1>
         <h2>Comanda N: {pratica-titolo}</h2>
 
         {opzionali}
@@ -97,7 +98,8 @@
                 <p><strong>Nominativo:</strong> {footer-utente}</p>
             </div>
             <p style="font-style: italic">
-                Ripe San Ginesio, Sagra della grigliata 2022
+                <strong>Operatore:</strong> {pratica-operatore}
+                <!--Ripe San Ginesio, Sagra della grigliata 2022-->
             </p>
         </div>
     </div>
