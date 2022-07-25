@@ -6,19 +6,8 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        .img-left {
-            float: left;
-            height: 100px;
-        }
-
-        .img-right {
-            float: right;
-            height: 100px;
-        }
-
         h2 {
             clear: both;
-            padding-top: 20px;
             text-align: left;
             color: #000000;
         }
@@ -42,21 +31,24 @@
         .tabella-pdf {
             width: 100%;
             margin: 16px auto 24px auto;
-            border-top: 1px solid #e0e0e0;
+            border: 1px solid #1f1d1d
         }
 
             .tabella-pdf th,
             .tabella-pdf td {
                 font-family: 'Times New Roman', Times, serif;
-                padding: 2px 8px 2px 8px;
+                padding: 2px 8px 8px 8px;
             }
 
             .tabella-pdf th {
                 text-align: left;
+                word-wrap: break-word;
+                max-width: 150px;
             }
-
-            .tabella-pdf td {
-                border-bottom: 1px dotted #a0a0a0;
+            
+            .nome {
+                word-wrap: break-word;
+                width: 200px;
             }
 
         .footer {
@@ -82,26 +74,66 @@
 </head>
 
 <body>
+    <div>
+        <table class="tabella-pdf" border="1" cellspacing="0" cellpadding="0">
+            <tr>
+                <td colspan="2">
+                    <h2 style="text-align: center;">{pratica-intestazione}</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Comanda N: {pratica-titolo}</h2>
+                </td>
+                <td>
+                    <h2 style="text-align: right;">Piatti</h2>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {piatti}
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Nominativo:</strong> {footer-utente}</td>
+                <td style="text-align: right;"><strong>Data:</strong> {footer-data}</td>
+            </tr>
+            <tr>
+                <td><strong>Operatore:</strong> {pratica-operatore}</td>
+                <td style="text-align: right;"><strong>Ora:</strong> {footer-ora}</td>
+            </tr>
+        </table>
+    </div>
+
     <div class="container-pdf">
-
-        <h1 style="text-align: center;">{pratica-intestazione}</h1>
-        <h2>Comanda N: {pratica-titolo}</h2>
-
-        {opzionali}
-
-        <div class="footer">
-            <div class="footer-data">
-                <p><strong>Data:</strong> {footer-data}</p>
-                <p><strong>Ora:</strong> {footer-ora}</p>
-            </div>
-            <div class="footer-utente">
-                <p><strong>Nominativo:</strong> {footer-utente}</p>
-            </div>
-            <p style="font-style: italic">
-                <strong>Operatore:</strong> {pratica-operatore}
-                <!--Ripe San Ginesio, Sagra della grigliata 2022-->
-            </p>
-        </div>
+        <table class="tabella-pdf" border="1" cellspacing="0" cellpadding="0">
+            <tr>
+                <td colspan="2">
+                    <h2 style="text-align: center;">{pratica-intestazione}</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Comanda N: {pratica-titolo}</h2>
+                </td>
+                <td>
+                    <h2 style="text-align: right;">Bevande</h2>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {bevande}
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Nominativo:</strong> {footer-utente}</td>
+                <td style="text-align: right;"><strong>Data:</strong> {footer-data}</td>
+            </tr>
+            <tr>
+                <td><strong>Operatore:</strong> {pratica-operatore}</td>
+                <td style="text-align: right;"><strong>Ora:</strong> {footer-ora}</td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

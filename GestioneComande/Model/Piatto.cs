@@ -11,6 +11,7 @@ namespace GestioneComande.Model
     {
         [Key]
         public int ID { get; set; }
+        public string Nome { get; set; }
         public string Tipologia { get; set; }
         public int Quantita { get; set; }
         public decimal Costo { get; set; }
