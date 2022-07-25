@@ -50,7 +50,7 @@ namespace GestioneComande
                     loadComanda();
                     break;
                 case 4:
-                    loadComandeOggi();
+                    loadComande();
                     break;
                 case 5:
                     loadStatistiche();
@@ -213,7 +213,7 @@ namespace GestioneComande
                 //Check if click is on specific column 
                 //if (e.ColumnIndex == gdrListaPiatti.Columns["btnElimina"].Index)
                 string columnName = e.ColumnIndex >= 0 ? this.gdrListaPiatti.Columns[e.ColumnIndex].Name : null;
-                if (columnName == "btnElimina")
+                if (columnName != null && columnName == "btnElimina")
                 {
                     var id = gdrListaPiatti.Rows[e.RowIndex].Cells["id"].Value;
 
@@ -280,6 +280,9 @@ namespace GestioneComande
             // Reset testi
             txtNominativo.Text = "";
             lblCostoTotale.Text = "";
+
+            lblResto.Text = "";
+            numPagato.Value = 0;
 
             lblDataAttuale.Text = DateTime.Now.ToShortDateString();
             lblOraAttuale.Text = DateTime.Now.ToShortTimeString();
@@ -650,8 +653,17 @@ namespace GestioneComande
 
         // TAB COMANDE OGGI
 
-        private void loadComandeOggi()
+        private void loadComande(DateTime? inizio = null, DateTime? fine = null)
         {
+            if (inizio == null)
+            {
+                inizio = DateTime.Now.Date;
+            }
+            if (fine == null)
+            {
+                fine = DateTime.Now.Date;
+            }
+
             var dt = new DataTable();
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("Numero", typeof(string));
@@ -664,7 +676,11 @@ namespace GestioneComande
             dt.Columns.Add("Data", typeof(DateTime));
 
             var comandeOggi = 
-                context.Comanda.Where(x => EntityFunctions.TruncateTime(x.Data) == DateTime.Today)
+                context.Comanda
+                .Where(x =>
+                        EntityFunctions.TruncateTime(x.Data) >= inizio &&
+                        EntityFunctions.TruncateTime(x.Data) <= fine
+                    )
                 .OrderByDescending(x => x.ID)
                 .ToList();
 
@@ -711,8 +727,8 @@ namespace GestioneComande
 
                 //Check if click is on specific column 
                 //if (e.ColumnIndex == gdrListaPiatti.Columns["btnElimina"].Index)
-                string columnName = this.gdvComandeOggi.Columns[e.ColumnIndex].Name;
-                if (columnName == "btnStampa")
+                string columnName = e.ColumnIndex >= 0 ? this.gdvComandeOggi.Columns[e.ColumnIndex].Name : null;
+                if (columnName != null && columnName == "btnStampa")
                 {
                     var id = gdvComandeOggi.Rows[e.RowIndex].Cells["ID"].Value;
 
@@ -735,37 +751,66 @@ namespace GestioneComande
             }
         }
 
-        private void copyAlltoClipboard()
+        private bool copyAlltoClipboard()
         {
             gdvComandeOggi.SelectAll();
 
+            gdvComandeOggi.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             DataObject dataObj = gdvComandeOggi.GetClipboardContent();
             if (dataObj != null)
+            {
                 Clipboard.SetDataObject(dataObj);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         
         private void btnEsportaXls_Click_1(object sender, EventArgs e)
         {
-            copyAlltoClipboard();
-            Microsoft.Office.Interop.Excel.Application xlexcel;
-            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
-            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
-            xlexcel = new Microsoft.Office.Interop.Excel.Application();
-            xlexcel.Visible = true;
-            xlWorkBook = xlexcel.Workbooks.Add(misValue);
-            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
-            CR.Select();
-            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            if (copyAlltoClipboard())
+            {
+                Microsoft.Office.Interop.Excel.Application xlexcel;
+                Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+                object misValue = System.Reflection.Missing.Value;
+                xlexcel = new Microsoft.Office.Interop.Excel.Application();
+                xlexcel.Visible = true;
+                xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            }
+        }
+
+        private void btnCercaComande_Click(object sender, EventArgs e)
+        {
+            loadComande(comandeDataInizio.Value.Date, comandeDataFine.Value.Date);
         }
 
         // TAB STATISTICHE OGGI
 
-        private void loadStatistiche()
+        private void loadStatistiche(DateTime? inizio = null, DateTime? fine = null)
         {
+            if(inizio == null)
+            {
+                inizio = DateTime.Now.Date;
+            }
+            if (fine == null)
+            {
+                fine = DateTime.Now.Date;
+            }
+
             var piatti =
-                context.Item.Where(x => EntityFunctions.TruncateTime(x.comanda.Data) == DateTime.Today).GroupBy(x => x.piatto)
+                context.Item
+                .Where(x => 
+                        EntityFunctions.TruncateTime(x.comanda.Data) >= inizio && 
+                        EntityFunctions.TruncateTime(x.comanda.Data) <= fine
+                    )
+                .GroupBy(x => x.piatto)
                 .Select(x => x.Key).ToList();
 
             var piattiFinali = piatti.Select(x => new Statistiche
@@ -784,8 +829,11 @@ namespace GestioneComande
             dt.Columns.Add("Venduto", typeof(int));
             dt.Columns.Add("Guadagno", typeof(decimal));
 
+            decimal totale = 0;
+
             foreach (var piatto in piattiFinali)
             {
+                totale += piatto.Guadagno;
                 dt.Rows.Add(piatto.Tipologia, piatto.Totale, piatto.Rimasto, piatto.Venduto, piatto.Guadagno );
             }
 
@@ -795,6 +843,50 @@ namespace GestioneComande
             gdvStatistiche.Columns["Venduto"].ReadOnly = true;
             gdvStatistiche.Columns["Totale"].ReadOnly = true;
             gdvStatistiche.Columns["Guadagno"].ReadOnly = true;
+
+            lblStatisticheIncasso.Text = totale.ToString() + " euro";
+        }
+
+
+        private bool copyAlltoClipboardStatistiche()
+        {
+            gdvStatistiche.SelectAll();
+
+            gdvStatistiche.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            DataObject dataObj = gdvStatistiche.GetClipboardContent();
+            if (dataObj != null)
+            {
+                Clipboard.SetDataObject(dataObj);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void btnEsportaXlsStatistiche_Click_1(object sender, EventArgs e)
+        {
+            if (copyAlltoClipboardStatistiche())
+            {
+                Microsoft.Office.Interop.Excel.Application xlexcel;
+                Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+                object misValue = System.Reflection.Missing.Value;
+                xlexcel = new Microsoft.Office.Interop.Excel.Application();
+                xlexcel.Visible = true;
+                xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            }
+        }
+
+
+        private void btnCercaStatistiche_Click(object sender, EventArgs e)
+        {
+            loadStatistiche(statsDataInizio.Value.Date, statsDataFine.Value.Date);
         }
 
         // UTILITY

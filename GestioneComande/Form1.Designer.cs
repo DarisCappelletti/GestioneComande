@@ -32,8 +32,8 @@ namespace GestioneComande
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Crea = new System.Windows.Forms.Button();
             this.txtTipologia = new System.Windows.Forms.TextBox();
             this.lblTipologia = new System.Windows.Forms.Label();
@@ -89,6 +89,11 @@ namespace GestioneComande
             this.gdvComanda = new System.Windows.Forms.DataGridView();
             this.btnCreaComanda = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.btnCercaComande = new System.Windows.Forms.Button();
+            this.comandeDataFine = new System.Windows.Forms.DateTimePicker();
+            this.comandeDataInizio = new System.Windows.Forms.DateTimePicker();
             this.btnEsportaXls = new System.Windows.Forms.Button();
             this.lblTotaleIncassoOggi = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -96,6 +101,14 @@ namespace GestioneComande
             this.label6 = new System.Windows.Forms.Label();
             this.gdvComandeOggi = new System.Windows.Forms.DataGridView();
             this.tabStatistiche = new System.Windows.Forms.TabPage();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.btnCercaStatistiche = new System.Windows.Forms.Button();
+            this.statsDataFine = new System.Windows.Forms.DateTimePicker();
+            this.statsDataInizio = new System.Windows.Forms.DateTimePicker();
+            this.lblStatisticheIncasso = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.btnEsportaXlsStatistiche = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.gdvStatistiche = new System.Windows.Forms.DataGridView();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
@@ -505,14 +518,14 @@ namespace GestioneComande
             this.gdrListaPiatti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gdrListaPiatti.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdrListaPiatti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle3;
             this.gdrListaPiatti.Location = new System.Drawing.Point(10, 87);
             this.gdrListaPiatti.Name = "gdrListaPiatti";
             this.gdrListaPiatti.RowTemplate.Height = 24;
@@ -697,14 +710,14 @@ namespace GestioneComande
             this.gdvComanda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gdvComanda.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdvComanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle4;
             this.gdvComanda.Location = new System.Drawing.Point(13, 82);
             this.gdvComanda.Name = "gdvComanda";
             this.gdvComanda.RowTemplate.Height = 24;
@@ -724,6 +737,11 @@ namespace GestioneComande
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label32);
+            this.tabPage4.Controls.Add(this.label33);
+            this.tabPage4.Controls.Add(this.btnCercaComande);
+            this.tabPage4.Controls.Add(this.comandeDataFine);
+            this.tabPage4.Controls.Add(this.comandeDataInizio);
             this.tabPage4.Controls.Add(this.btnEsportaXls);
             this.tabPage4.Controls.Add(this.lblTotaleIncassoOggi);
             this.tabPage4.Controls.Add(this.label14);
@@ -737,6 +755,48 @@ namespace GestioneComande
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Visualizza comande";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(808, 523);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(65, 17);
+            this.label32.TabIndex = 14;
+            this.label32.Text = "Data fine";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(553, 523);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(74, 17);
+            this.label33.TabIndex = 13;
+            this.label33.Text = "Data inizio";
+            // 
+            // btnCercaComande
+            // 
+            this.btnCercaComande.Location = new System.Drawing.Point(653, 587);
+            this.btnCercaComande.Name = "btnCercaComande";
+            this.btnCercaComande.Size = new System.Drawing.Size(139, 46);
+            this.btnCercaComande.TabIndex = 12;
+            this.btnCercaComande.Text = "Cerca";
+            this.btnCercaComande.UseVisualStyleBackColor = true;
+            this.btnCercaComande.Click += new System.EventHandler(this.btnCercaComande_Click);
+            // 
+            // comandeDataFine
+            // 
+            this.comandeDataFine.Location = new System.Drawing.Point(739, 559);
+            this.comandeDataFine.Name = "comandeDataFine";
+            this.comandeDataFine.Size = new System.Drawing.Size(232, 22);
+            this.comandeDataFine.TabIndex = 11;
+            // 
+            // comandeDataInizio
+            // 
+            this.comandeDataInizio.Location = new System.Drawing.Point(481, 559);
+            this.comandeDataInizio.Name = "comandeDataInizio";
+            this.comandeDataInizio.Size = new System.Drawing.Size(224, 22);
+            this.comandeDataInizio.TabIndex = 10;
             // 
             // btnEsportaXls
             // 
@@ -770,22 +830,21 @@ namespace GestioneComande
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(431, 53);
+            this.label13.Location = new System.Drawing.Point(496, 53);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(519, 17);
+            this.label13.Size = new System.Drawing.Size(377, 17);
             this.label13.TabIndex = 2;
-            this.label13.Text = "Lista di tutte le comande emesse nella giornata odierna con il calcolo dell\'incas" +
-    "so";
+            this.label13.Text = "Lista di tutte le comande emesse con il calcolo dell\'incasso";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(529, 3);
+            this.label6.Location = new System.Drawing.Point(569, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(348, 39);
+            this.label6.Size = new System.Drawing.Size(238, 39);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Lista comande di oggi";
+            this.label6.Text = "Lista comande";
             // 
             // gdvComandeOggi
             // 
@@ -796,12 +855,20 @@ namespace GestioneComande
             this.gdvComandeOggi.Name = "gdvComandeOggi";
             this.gdvComandeOggi.ReadOnly = true;
             this.gdvComandeOggi.RowTemplate.Height = 24;
-            this.gdvComandeOggi.Size = new System.Drawing.Size(1391, 520);
+            this.gdvComandeOggi.Size = new System.Drawing.Size(1391, 436);
             this.gdvComandeOggi.TabIndex = 0;
             this.gdvComandeOggi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvComandeOggi_CellClick);
             // 
             // tabStatistiche
             // 
+            this.tabStatistiche.Controls.Add(this.label31);
+            this.tabStatistiche.Controls.Add(this.label30);
+            this.tabStatistiche.Controls.Add(this.btnCercaStatistiche);
+            this.tabStatistiche.Controls.Add(this.statsDataFine);
+            this.tabStatistiche.Controls.Add(this.statsDataInizio);
+            this.tabStatistiche.Controls.Add(this.lblStatisticheIncasso);
+            this.tabStatistiche.Controls.Add(this.label29);
+            this.tabStatistiche.Controls.Add(this.btnEsportaXlsStatistiche);
             this.tabStatistiche.Controls.Add(this.label19);
             this.tabStatistiche.Controls.Add(this.gdvStatistiche);
             this.tabStatistiche.Location = new System.Drawing.Point(4, 25);
@@ -811,6 +878,77 @@ namespace GestioneComande
             this.tabStatistiche.TabIndex = 5;
             this.tabStatistiche.Text = "Statistiche";
             this.tabStatistiche.UseVisualStyleBackColor = true;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(1223, 116);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(65, 17);
+            this.label31.TabIndex = 9;
+            this.label31.Text = "Data fine";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(968, 116);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(74, 17);
+            this.label30.TabIndex = 8;
+            this.label30.Text = "Data inizio";
+            // 
+            // btnCercaStatistiche
+            // 
+            this.btnCercaStatistiche.Location = new System.Drawing.Point(1068, 193);
+            this.btnCercaStatistiche.Name = "btnCercaStatistiche";
+            this.btnCercaStatistiche.Size = new System.Drawing.Size(139, 46);
+            this.btnCercaStatistiche.TabIndex = 7;
+            this.btnCercaStatistiche.Text = "Cerca";
+            this.btnCercaStatistiche.UseVisualStyleBackColor = true;
+            this.btnCercaStatistiche.Click += new System.EventHandler(this.btnCercaStatistiche_Click);
+            // 
+            // statsDataFine
+            // 
+            this.statsDataFine.Location = new System.Drawing.Point(1154, 152);
+            this.statsDataFine.Name = "statsDataFine";
+            this.statsDataFine.Size = new System.Drawing.Size(232, 22);
+            this.statsDataFine.TabIndex = 6;
+            // 
+            // statsDataInizio
+            // 
+            this.statsDataInizio.Location = new System.Drawing.Point(896, 152);
+            this.statsDataInizio.Name = "statsDataInizio";
+            this.statsDataInizio.Size = new System.Drawing.Size(224, 22);
+            this.statsDataInizio.TabIndex = 5;
+            // 
+            // lblStatisticheIncasso
+            // 
+            this.lblStatisticheIncasso.AutoSize = true;
+            this.lblStatisticheIncasso.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatisticheIncasso.Location = new System.Drawing.Point(1157, 491);
+            this.lblStatisticheIncasso.Name = "lblStatisticheIncasso";
+            this.lblStatisticheIncasso.Size = new System.Drawing.Size(0, 39);
+            this.lblStatisticheIncasso.TabIndex = 4;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(889, 491);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(246, 39);
+            this.label29.TabIndex = 3;
+            this.label29.Text = "Totale incasso:";
+            // 
+            // btnEsportaXlsStatistiche
+            // 
+            this.btnEsportaXlsStatistiche.Location = new System.Drawing.Point(1034, 559);
+            this.btnEsportaXlsStatistiche.Name = "btnEsportaXlsStatistiche";
+            this.btnEsportaXlsStatistiche.Size = new System.Drawing.Size(173, 55);
+            this.btnEsportaXlsStatistiche.TabIndex = 2;
+            this.btnEsportaXlsStatistiche.Text = "Esporta excel";
+            this.btnEsportaXlsStatistiche.UseVisualStyleBackColor = true;
+            this.btnEsportaXlsStatistiche.Click += new System.EventHandler(this.btnEsportaXlsStatistiche_Click_1);
             // 
             // label19
             // 
@@ -942,6 +1080,19 @@ namespace GestioneComande
         private ComboBox ddlTipo;
         private Label label27;
         private Label label28;
+        private Button btnEsportaXlsStatistiche;
+        private Label lblStatisticheIncasso;
+        private Label label29;
+        private Label label31;
+        private Label label30;
+        private Button btnCercaStatistiche;
+        private DateTimePicker statsDataFine;
+        private DateTimePicker statsDataInizio;
+        private Label label32;
+        private Label label33;
+        private Button btnCercaComande;
+        private DateTimePicker comandeDataFine;
+        private DateTimePicker comandeDataInizio;
     }
 }
 
