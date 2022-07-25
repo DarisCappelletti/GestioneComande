@@ -354,6 +354,7 @@ namespace GestioneComande
                 }
 
                 lblCostoTotale.Text = total.ToString();
+                aggiornaResto();
             }
         }
 
@@ -737,6 +738,7 @@ namespace GestioneComande
         private void copyAlltoClipboard()
         {
             gdvComandeOggi.SelectAll();
+
             DataObject dataObj = gdvComandeOggi.GetClipboardContent();
             if (dataObj != null)
                 Clipboard.SetDataObject(dataObj);
@@ -807,14 +809,15 @@ namespace GestioneComande
 
         private void numPagato_KeyUp(object sender, KeyEventArgs e)
         {
-            if (lblCostoTotale.Text != "")
-            {
-                var totale = Convert.ToDecimal(lblCostoTotale.Text);
-                lblResto.Text = (numPagato.Value - totale).ToString();
-            }
+            aggiornaResto();
         }
 
         private void numPagato_ValueChanged(object sender, EventArgs e)
+        {
+            aggiornaResto();
+        }
+
+        private void aggiornaResto()
         {
             if (lblCostoTotale.Text != "")
             {
