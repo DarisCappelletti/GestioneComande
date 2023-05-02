@@ -1196,6 +1196,11 @@ namespace GestioneComande
             tabGestioneComande.SelectedIndex = 0;
             lblTitoloStato.Text = "Home";
         }
+
+        private void tabVisualizzaComande_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class Statistiche {

@@ -32,10 +32,15 @@ namespace GestioneComande
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Crea = new System.Windows.Forms.Button();
             this.tabGestioneComande = new System.Windows.Forms.TabControl();
+            this.tabHome = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblNomeProgramma = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabConfigura = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -57,44 +62,39 @@ namespace GestioneComande
             this.lblTipsNumeroPartenza = new System.Windows.Forms.Label();
             this.tabCreaPiatto = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtQuantita = new MaterialSkin.Controls.MaterialTextBox();
             this.txtCosto = new MaterialSkin.Controls.MaterialTextBox();
             this.ddlTipo = new MaterialSkin.Controls.MaterialComboBox();
             this.txtTipologia = new MaterialSkin.Controls.MaterialTextBox();
+            this.lblNomeTipologia = new System.Windows.Forms.Label();
             this.tabListaPiatti = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSalvaListaPiatti = new System.Windows.Forms.Button();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnSalvaListaPiatti = new System.Windows.Forms.Button();
             this.gdrListaPiatti = new System.Windows.Forms.DataGridView();
             this.tabCreaComanda = new System.Windows.Forms.TabPage();
-            this.numPagato = new System.Windows.Forms.NumericUpDown();
-            this.lblResto = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblCostoTotale = new System.Windows.Forms.Label();
-            this.lblTotale = new System.Windows.Forms.Label();
-            this.lblOraAttuale = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblDataAttuale = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNominativo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.gdvComanda = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblCostoTotale = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblResto = new System.Windows.Forms.Label();
             this.btnCreaComanda = new System.Windows.Forms.Button();
-            this.tabVisualizzaComande = new System.Windows.Forms.TabPage();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.btnCercaComande = new System.Windows.Forms.Button();
-            this.comandeDataFine = new System.Windows.Forms.DateTimePicker();
-            this.comandeDataInizio = new System.Windows.Forms.DateTimePicker();
-            this.btnEsportaXls = new System.Windows.Forms.Button();
-            this.lblTotaleIncassoOggi = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.gdvComandeOggi = new System.Windows.Forms.DataGridView();
+            this.numPagato = new System.Windows.Forms.NumericUpDown();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNominativo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lblDataAttuale = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblOraAttuale = new System.Windows.Forms.Label();
+            this.lblTotale = new System.Windows.Forms.Label();
             this.tabStatistiche = new System.Windows.Forms.TabPage();
-            this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.btnCercaStatistiche = new System.Windows.Forms.Button();
             this.statsDataFine = new System.Windows.Forms.DateTimePicker();
@@ -123,16 +123,24 @@ namespace GestioneComande
             this.panel3 = new System.Windows.Forms.Panel();
             this.iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
             this.iconDropDownButton2 = new FontAwesome.Sharp.IconDropDownButton();
-            this.tabHome = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblNomeProgramma = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblNomeTipologia = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblTotaleIncassoOggi = new System.Windows.Forms.Label();
+            this.btnEsportaXls = new System.Windows.Forms.Button();
+            this.btnCercaComande = new System.Windows.Forms.Button();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comandeDataInizio = new System.Windows.Forms.DateTimePicker();
+            this.comandeDataFine = new System.Windows.Forms.DateTimePicker();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.gdvComandeOggi = new System.Windows.Forms.DataGridView();
+            this.tabVisualizzaComande = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.label31 = new System.Windows.Forms.Label();
             this.tabGestioneComande.SuspendLayout();
+            this.tabHome.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tabConfigura.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -143,27 +151,32 @@ namespace GestioneComande
             this.tableLayoutPanel1.SuspendLayout();
             this.tabListaPiatti.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrListaPiatti)).BeginInit();
             this.tabCreaComanda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numPagato)).BeginInit();
+            this.tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvComanda)).BeginInit();
-            this.tabVisualizzaComande.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvComandeOggi)).BeginInit();
+            this.tableLayoutPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPagato)).BeginInit();
             this.tabStatistiche.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvStatistiche)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tabHome.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gdvComandeOggi)).BeginInit();
+            this.tabVisualizzaComande.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // Crea
             // 
             this.Crea.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Crea.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Crea.Location = new System.Drawing.Point(765, 670);
+            this.Crea.Location = new System.Drawing.Point(765, 760);
             this.Crea.Name = "Crea";
             this.Crea.Size = new System.Drawing.Size(164, 56);
             this.Crea.TabIndex = 0;
@@ -191,13 +204,73 @@ namespace GestioneComande
             this.tabGestioneComande.TabIndex = 9;
             this.tabGestioneComande.SelectedIndexChanged += new System.EventHandler(this.tabGestioneComande_SelectedIndexchanged);
             // 
+            // tabHome
+            // 
+            this.tabHome.Controls.Add(this.tableLayoutPanel7);
+            this.tabHome.Location = new System.Drawing.Point(4, 54);
+            this.tabHome.Name = "tabHome";
+            this.tabHome.Size = new System.Drawing.Size(1418, 782);
+            this.tabHome.TabIndex = 6;
+            this.tabHome.Text = "Home";
+            this.tabHome.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lblNomeProgramma, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1418, 782);
+            this.tableLayoutPanel7.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(867, 137);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(392, 116);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Creato da \r\nDaris Cappelletti";
+            // 
+            // lblNomeProgramma
+            // 
+            this.lblNomeProgramma.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNomeProgramma.AutoSize = true;
+            this.lblNomeProgramma.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeProgramma.Location = new System.Drawing.Point(154, 100);
+            this.lblNomeProgramma.Name = "lblNomeProgramma";
+            this.lblNomeProgramma.Size = new System.Drawing.Size(400, 190);
+            this.lblNomeProgramma.TabIndex = 0;
+            this.lblNomeProgramma.Text = "Gestione comande";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(267, 557);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 58);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "v 1.0.0";
+            // 
             // tabConfigura
             // 
             this.tabConfigura.Controls.Add(this.tableLayoutPanel2);
             this.tabConfigura.Location = new System.Drawing.Point(4, 54);
             this.tabConfigura.Name = "tabConfigura";
             this.tabConfigura.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfigura.Size = new System.Drawing.Size(1418, 882);
+            this.tabConfigura.Size = new System.Drawing.Size(1418, 782);
             this.tabConfigura.TabIndex = 4;
             this.tabConfigura.Text = "Configura";
             this.tabConfigura.UseVisualStyleBackColor = true;
@@ -225,7 +298,7 @@ namespace GestioneComande
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1412, 876);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1412, 776);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
             // tableLayoutPanel6
@@ -235,19 +308,19 @@ namespace GestioneComande
             this.tableLayoutPanel6.Controls.Add(this.txtOperatore, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.lblTipsOperatore, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(340, 528);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(340, 468);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1069, 169);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1069, 149);
             this.tableLayoutPanel6.TabIndex = 14;
             // 
             // txtOperatore
             // 
             this.txtOperatore.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOperatore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOperatore.Location = new System.Drawing.Point(402, 19);
+            this.txtOperatore.Location = new System.Drawing.Point(402, 14);
             this.txtOperatore.Name = "txtOperatore";
             this.txtOperatore.Size = new System.Drawing.Size(265, 45);
             this.txtOperatore.TabIndex = 9;
@@ -256,7 +329,7 @@ namespace GestioneComande
             // 
             this.lblTipsOperatore.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTipsOperatore.AutoSize = true;
-            this.lblTipsOperatore.Location = new System.Drawing.Point(274, 84);
+            this.lblTipsOperatore.Location = new System.Drawing.Point(274, 74);
             this.lblTipsOperatore.Name = "lblTipsOperatore";
             this.lblTipsOperatore.Size = new System.Drawing.Size(520, 17);
             this.lblTipsOperatore.TabIndex = 13;
@@ -269,19 +342,19 @@ namespace GestioneComande
             this.tableLayoutPanel5.Controls.Add(this.txtSerie, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.lblTipsSerie, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(340, 353);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(340, 313);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1069, 169);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1069, 149);
             this.tableLayoutPanel5.TabIndex = 12;
             // 
             // txtSerie
             // 
             this.txtSerie.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSerie.Location = new System.Drawing.Point(484, 19);
+            this.txtSerie.Location = new System.Drawing.Point(484, 14);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(100, 45);
             this.txtSerie.TabIndex = 4;
@@ -290,7 +363,7 @@ namespace GestioneComande
             // 
             this.lblTipsSerie.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTipsSerie.AutoSize = true;
-            this.lblTipsSerie.Location = new System.Drawing.Point(230, 84);
+            this.lblTipsSerie.Location = new System.Drawing.Point(230, 74);
             this.lblTipsSerie.Name = "lblTipsSerie";
             this.lblTipsSerie.Size = new System.Drawing.Size(608, 17);
             this.lblTipsSerie.TabIndex = 12;
@@ -302,7 +375,7 @@ namespace GestioneComande
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(63, 68);
+            this.label16.Location = new System.Drawing.Point(63, 58);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(210, 39);
             this.label16.TabIndex = 1;
@@ -313,7 +386,7 @@ namespace GestioneComande
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(48, 204);
+            this.label17.Location = new System.Drawing.Point(48, 174);
             this.label17.MaximumSize = new System.Drawing.Size(300, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(240, 117);
@@ -325,7 +398,7 @@ namespace GestioneComande
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(79, 593);
+            this.label20.Location = new System.Drawing.Point(79, 523);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(178, 39);
             this.label20.TabIndex = 8;
@@ -333,7 +406,7 @@ namespace GestioneComande
             // 
             // btnSalvaConfigurazione
             // 
-            this.btnSalvaConfigurazione.Location = new System.Drawing.Point(340, 703);
+            this.btnSalvaConfigurazione.Location = new System.Drawing.Point(340, 623);
             this.btnSalvaConfigurazione.Name = "btnSalvaConfigurazione";
             this.btnSalvaConfigurazione.Size = new System.Drawing.Size(208, 80);
             this.btnSalvaConfigurazione.TabIndex = 7;
@@ -346,7 +419,7 @@ namespace GestioneComande
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(115, 418);
+            this.label18.Location = new System.Drawing.Point(115, 368);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(106, 39);
             this.label18.TabIndex = 6;
@@ -364,14 +437,14 @@ namespace GestioneComande
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1069, 169);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1069, 149);
             this.tableLayoutPanel3.TabIndex = 10;
             // 
             // txtIntestazione
             // 
             this.txtIntestazione.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtIntestazione.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIntestazione.Location = new System.Drawing.Point(402, 36);
+            this.txtIntestazione.Location = new System.Drawing.Point(402, 26);
             this.txtIntestazione.Name = "txtIntestazione";
             this.txtIntestazione.Size = new System.Drawing.Size(265, 45);
             this.txtIntestazione.TabIndex = 2;
@@ -380,7 +453,7 @@ namespace GestioneComande
             // 
             this.lblTipsIntestazione.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTipsIntestazione.AutoSize = true;
-            this.lblTipsIntestazione.Location = new System.Drawing.Point(335, 84);
+            this.lblTipsIntestazione.Location = new System.Drawing.Point(335, 74);
             this.lblTipsIntestazione.Name = "lblTipsIntestazione";
             this.lblTipsIntestazione.Size = new System.Drawing.Size(399, 17);
             this.lblTipsIntestazione.TabIndex = 10;
@@ -393,19 +466,19 @@ namespace GestioneComande
             this.tableLayoutPanel4.Controls.Add(this.txtNumeroComandaIniziale, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.lblTipsNumeroPartenza, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(340, 178);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(340, 158);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1069, 169);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1069, 149);
             this.tableLayoutPanel4.TabIndex = 11;
             // 
             // txtNumeroComandaIniziale
             // 
             this.txtNumeroComandaIniziale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNumeroComandaIniziale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroComandaIniziale.Location = new System.Drawing.Point(484, 19);
+            this.txtNumeroComandaIniziale.Location = new System.Drawing.Point(484, 14);
             this.txtNumeroComandaIniziale.Name = "txtNumeroComandaIniziale";
             this.txtNumeroComandaIniziale.Size = new System.Drawing.Size(100, 45);
             this.txtNumeroComandaIniziale.TabIndex = 3;
@@ -414,7 +487,7 @@ namespace GestioneComande
             // 
             this.lblTipsNumeroPartenza.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTipsNumeroPartenza.AutoSize = true;
-            this.lblTipsNumeroPartenza.Location = new System.Drawing.Point(232, 84);
+            this.lblTipsNumeroPartenza.Location = new System.Drawing.Point(232, 74);
             this.lblTipsNumeroPartenza.MaximumSize = new System.Drawing.Size(800, 0);
             this.lblTipsNumeroPartenza.Name = "lblTipsNumeroPartenza";
             this.lblTipsNumeroPartenza.Size = new System.Drawing.Size(605, 34);
@@ -428,7 +501,7 @@ namespace GestioneComande
             this.tabCreaPiatto.Location = new System.Drawing.Point(4, 54);
             this.tabCreaPiatto.Name = "tabCreaPiatto";
             this.tabCreaPiatto.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCreaPiatto.Size = new System.Drawing.Size(1418, 782);
+            this.tabCreaPiatto.Size = new System.Drawing.Size(1418, 882);
             this.tabCreaPiatto.TabIndex = 0;
             this.tabCreaPiatto.Text = "Crea piatto";
             this.tabCreaPiatto.UseVisualStyleBackColor = true;
@@ -443,11 +516,11 @@ namespace GestioneComande
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Crea, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtQuantita, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtCosto, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.ddlTipo, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtTipologia, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNomeTipologia, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtCosto, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtQuantita, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -457,8 +530,41 @@ namespace GestioneComande
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1412, 776);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1412, 876);
             this.tableLayoutPanel1.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(80, 593);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 39);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Costo:";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(59, 418);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(163, 39);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Quantità:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(53, 243);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(176, 39);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Tipologia:";
             // 
             // txtQuantita
             // 
@@ -468,7 +574,7 @@ namespace GestioneComande
             this.txtQuantita.Depth = 0;
             this.txtQuantita.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtQuantita.LeadingIcon = null;
-            this.txtQuantita.Location = new System.Drawing.Point(736, 517);
+            this.txtQuantita.Location = new System.Drawing.Point(736, 412);
             this.txtQuantita.MaxLength = 50;
             this.txtQuantita.MouseState = MaterialSkin.MouseState.OUT;
             this.txtQuantita.Multiline = false;
@@ -487,7 +593,7 @@ namespace GestioneComande
             this.txtCosto.Depth = 0;
             this.txtCosto.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtCosto.LeadingIcon = null;
-            this.txtCosto.Location = new System.Drawing.Point(748, 362);
+            this.txtCosto.Location = new System.Drawing.Point(748, 587);
             this.txtCosto.MaxLength = 50;
             this.txtCosto.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCosto.Multiline = false;
@@ -516,7 +622,7 @@ namespace GestioneComande
             this.ddlTipo.Items.AddRange(new object[] {
             "Piatto",
             "Bevanda"});
-            this.ddlTipo.Location = new System.Drawing.Point(786, 208);
+            this.ddlTipo.Location = new System.Drawing.Point(786, 238);
             this.ddlTipo.MaxDropDownItems = 4;
             this.ddlTipo.MouseState = MaterialSkin.MouseState.OUT;
             this.ddlTipo.Name = "ddlTipo";
@@ -532,7 +638,7 @@ namespace GestioneComande
             this.txtTipologia.Depth = 0;
             this.txtTipologia.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtTipologia.LeadingIcon = null;
-            this.txtTipologia.Location = new System.Drawing.Point(748, 52);
+            this.txtTipologia.Location = new System.Drawing.Point(748, 62);
             this.txtTipologia.MaxLength = 50;
             this.txtTipologia.MouseState = MaterialSkin.MouseState.OUT;
             this.txtTipologia.Multiline = false;
@@ -541,6 +647,17 @@ namespace GestioneComande
             this.txtTipologia.TabIndex = 5;
             this.txtTipologia.Text = "";
             this.txtTipologia.TrailingIcon = null;
+            // 
+            // lblNomeTipologia
+            // 
+            this.lblNomeTipologia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNomeTipologia.AutoSize = true;
+            this.lblNomeTipologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeTipologia.Location = new System.Drawing.Point(80, 68);
+            this.lblNomeTipologia.Name = "lblNomeTipologia";
+            this.lblNomeTipologia.Size = new System.Drawing.Size(122, 39);
+            this.lblNomeTipologia.TabIndex = 12;
+            this.lblNomeTipologia.Text = "Nome:";
             // 
             // tabListaPiatti
             // 
@@ -555,18 +672,43 @@ namespace GestioneComande
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnSalvaListaPiatti);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.gdrListaPiatti);
+            this.panel1.Controls.Add(this.tableLayoutPanel8);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1412, 776);
             this.panel1.TabIndex = 4;
             // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.btnSalvaListaPiatti, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.gdrListaPiatti, 0, 1);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 632F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1412, 776);
+            this.tableLayoutPanel8.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 27);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(1218, 17);
+            this.label11.TabIndex = 3;
+            this.label11.Text = resources.GetString("label11.Text");
+            // 
             // btnSalvaListaPiatti
             // 
-            this.btnSalvaListaPiatti.Location = new System.Drawing.Point(536, 618);
+            this.btnSalvaListaPiatti.Location = new System.Drawing.Point(3, 707);
             this.btnSalvaListaPiatti.Name = "btnSalvaListaPiatti";
             this.btnSalvaListaPiatti.Size = new System.Drawing.Size(95, 51);
             this.btnSalvaListaPiatti.TabIndex = 1;
@@ -574,55 +716,33 @@ namespace GestioneComande
             this.btnSalvaListaPiatti.UseVisualStyleBackColor = true;
             this.btnSalvaListaPiatti.Click += new System.EventHandler(this.btnSalvaListaPiatti_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 69);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(667, 34);
-            this.label11.TabIndex = 3;
-            this.label11.Text = resources.GetString("label11.Text");
-            // 
             // gdrListaPiatti
             // 
             this.gdrListaPiatti.AllowUserToAddRows = false;
             this.gdrListaPiatti.AllowUserToOrderColumns = true;
-            this.gdrListaPiatti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gdrListaPiatti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gdrListaPiatti.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gdrListaPiatti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle5;
-            this.gdrListaPiatti.Location = new System.Drawing.Point(28, 117);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdrListaPiatti.DefaultCellStyle = dataGridViewCellStyle1;
+            this.gdrListaPiatti.Location = new System.Drawing.Point(3, 75);
             this.gdrListaPiatti.Name = "gdrListaPiatti";
+            this.gdrListaPiatti.RowHeadersVisible = false;
             this.gdrListaPiatti.RowHeadersWidth = 51;
             this.gdrListaPiatti.RowTemplate.Height = 24;
-            this.gdrListaPiatti.Size = new System.Drawing.Size(1084, 495);
+            this.gdrListaPiatti.Size = new System.Drawing.Size(1406, 626);
             this.gdrListaPiatti.TabIndex = 0;
             this.gdrListaPiatti.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdrListaPiatti_CellClick);
             // 
             // tabCreaComanda
             // 
-            this.tabCreaComanda.Controls.Add(this.numPagato);
-            this.tabCreaComanda.Controls.Add(this.lblResto);
-            this.tabCreaComanda.Controls.Add(this.label22);
-            this.tabCreaComanda.Controls.Add(this.label21);
-            this.tabCreaComanda.Controls.Add(this.label12);
-            this.tabCreaComanda.Controls.Add(this.lblCostoTotale);
-            this.tabCreaComanda.Controls.Add(this.lblTotale);
-            this.tabCreaComanda.Controls.Add(this.lblOraAttuale);
-            this.tabCreaComanda.Controls.Add(this.label4);
-            this.tabCreaComanda.Controls.Add(this.lblDataAttuale);
-            this.tabCreaComanda.Controls.Add(this.label3);
-            this.tabCreaComanda.Controls.Add(this.txtNominativo);
-            this.tabCreaComanda.Controls.Add(this.label2);
-            this.tabCreaComanda.Controls.Add(this.gdvComanda);
-            this.tabCreaComanda.Controls.Add(this.btnCreaComanda);
+            this.tabCreaComanda.Controls.Add(this.tableLayoutPanel9);
             this.tabCreaComanda.Location = new System.Drawing.Point(4, 54);
             this.tabCreaComanda.Name = "tabCreaComanda";
             this.tabCreaComanda.Padding = new System.Windows.Forms.Padding(3);
@@ -631,11 +751,128 @@ namespace GestioneComande
             this.tabCreaComanda.Text = "Crea comanda";
             this.tabCreaComanda.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.gdvComanda, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 1, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(1412, 776);
+            this.tableLayoutPanel9.TabIndex = 17;
+            // 
+            // gdvComanda
+            // 
+            this.gdvComanda.AllowUserToAddRows = false;
+            this.gdvComanda.AllowUserToDeleteRows = false;
+            this.gdvComanda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gdvComanda.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.gdvComanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gdvComanda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gdvComanda.Location = new System.Drawing.Point(3, 50);
+            this.gdvComanda.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
+            this.gdvComanda.MultiSelect = false;
+            this.gdvComanda.Name = "gdvComanda";
+            this.gdvComanda.RowHeadersVisible = false;
+            this.gdvComanda.RowHeadersWidth = 51;
+            this.gdvComanda.RowTemplate.Height = 24;
+            this.gdvComanda.Size = new System.Drawing.Size(700, 723);
+            this.gdvComanda.TabIndex = 1;
+            this.gdvComanda.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvComanda_CellEndEdit);
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.lblCostoTotale, 1, 3);
+            this.tableLayoutPanel10.Controls.Add(this.label12, 0, 6);
+            this.tableLayoutPanel10.Controls.Add(this.lblResto, 1, 5);
+            this.tableLayoutPanel10.Controls.Add(this.btnCreaComanda, 1, 6);
+            this.tableLayoutPanel10.Controls.Add(this.numPagato, 1, 4);
+            this.tableLayoutPanel10.Controls.Add(this.label22, 0, 5);
+            this.tableLayoutPanel10.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.txtNominativo, 1, 0);
+            this.tableLayoutPanel10.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.label21, 0, 4);
+            this.tableLayoutPanel10.Controls.Add(this.lblDataAttuale, 1, 1);
+            this.tableLayoutPanel10.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel10.Controls.Add(this.lblOraAttuale, 1, 2);
+            this.tableLayoutPanel10.Controls.Add(this.lblTotale, 0, 3);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(709, 3);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 7;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(700, 770);
+            this.tableLayoutPanel10.TabIndex = 2;
+            // 
+            // lblCostoTotale
+            // 
+            this.lblCostoTotale.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCostoTotale.AutoSize = true;
+            this.lblCostoTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCostoTotale.Location = new System.Drawing.Point(353, 383);
+            this.lblCostoTotale.Name = "lblCostoTotale";
+            this.lblCostoTotale.Size = new System.Drawing.Size(0, 39);
+            this.lblCostoTotale.TabIndex = 10;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 690);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(343, 68);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Questa funzione permette di creare una comanda. Imposta la quantità desiderata ed" +
+    " in automatico verrà calcolato il totale. Cliccare sul pulsante \"Stampa\" per cre" +
+    "are la comanda.";
+            // 
+            // lblResto
+            // 
+            this.lblResto.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblResto.AutoSize = true;
+            this.lblResto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResto.Location = new System.Drawing.Point(353, 613);
+            this.lblResto.Name = "lblResto";
+            this.lblResto.Size = new System.Drawing.Size(0, 39);
+            this.lblResto.TabIndex = 15;
+            // 
+            // btnCreaComanda
+            // 
+            this.btnCreaComanda.Location = new System.Drawing.Point(353, 693);
+            this.btnCreaComanda.Name = "btnCreaComanda";
+            this.btnCreaComanda.Size = new System.Drawing.Size(147, 61);
+            this.btnCreaComanda.TabIndex = 0;
+            this.btnCreaComanda.Text = "Stampa";
+            this.btnCreaComanda.UseVisualStyleBackColor = true;
+            this.btnCreaComanda.Click += new System.EventHandler(this.btnCreaComanda_Click);
+            // 
             // numPagato
             // 
+            this.numPagato.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.numPagato.DecimalPlaces = 2;
             this.numPagato.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numPagato.Location = new System.Drawing.Point(1062, 348);
+            this.numPagato.Location = new System.Drawing.Point(353, 495);
             this.numPagato.Maximum = new decimal(new int[] {
             500,
             0,
@@ -648,281 +885,106 @@ namespace GestioneComande
             this.numPagato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numPagato_KeyPress);
             this.numPagato.KeyUp += new System.Windows.Forms.KeyEventHandler(this.numPagato_KeyUp);
             // 
-            // lblResto
-            // 
-            this.lblResto.AutoSize = true;
-            this.lblResto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResto.Location = new System.Drawing.Point(1055, 410);
-            this.lblResto.Name = "lblResto";
-            this.lblResto.Size = new System.Drawing.Size(0, 39);
-            this.lblResto.TabIndex = 15;
-            // 
             // label22
             // 
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(909, 412);
+            this.label22.Location = new System.Drawing.Point(3, 613);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(115, 39);
             this.label22.TabIndex = 14;
             this.label22.Text = "Resto:";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(890, 350);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(134, 39);
-            this.label21.TabIndex = 12;
-            this.label21.Text = "Pagato:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label12.Location = new System.Drawing.Point(3, 3);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(1125, 17);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Questa funzione permette di creare una comanda. Imposta la quantità desiderata ed" +
-    " in automatico verrà calcolato il totale. Cliccare sul pulsante \"Stampa\" per cre" +
-    "are la comanda.";
-            // 
-            // lblCostoTotale
-            // 
-            this.lblCostoTotale.AutoSize = true;
-            this.lblCostoTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCostoTotale.Location = new System.Drawing.Point(1062, 295);
-            this.lblCostoTotale.Name = "lblCostoTotale";
-            this.lblCostoTotale.Size = new System.Drawing.Size(0, 39);
-            this.lblCostoTotale.TabIndex = 9;
-            // 
-            // lblTotale
-            // 
-            this.lblTotale.AutoSize = true;
-            this.lblTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotale.Location = new System.Drawing.Point(903, 297);
-            this.lblTotale.Name = "lblTotale";
-            this.lblTotale.Size = new System.Drawing.Size(121, 39);
-            this.lblTotale.TabIndex = 8;
-            this.lblTotale.Text = "Totale:";
-            // 
-            // lblOraAttuale
-            // 
-            this.lblOraAttuale.AutoSize = true;
-            this.lblOraAttuale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOraAttuale.Location = new System.Drawing.Point(1063, 197);
-            this.lblOraAttuale.Name = "lblOraAttuale";
-            this.lblOraAttuale.Size = new System.Drawing.Size(73, 39);
-            this.lblOraAttuale.TabIndex = 7;
-            this.lblOraAttuale.Text = "Ora";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(962, 197);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 39);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Ora:";
-            // 
-            // lblDataAttuale
-            // 
-            this.lblDataAttuale.AutoSize = true;
-            this.lblDataAttuale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataAttuale.Location = new System.Drawing.Point(1063, 149);
-            this.lblDataAttuale.Name = "lblDataAttuale";
-            this.lblDataAttuale.Size = new System.Drawing.Size(89, 39);
-            this.lblDataAttuale.TabIndex = 5;
-            this.lblDataAttuale.Text = "Data";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(946, 149);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 39);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Data:";
-            // 
-            // txtNominativo
-            // 
-            this.txtNominativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNominativo.Location = new System.Drawing.Point(1062, 42);
-            this.txtNominativo.Name = "txtNominativo";
-            this.txtNominativo.Size = new System.Drawing.Size(340, 45);
-            this.txtNominativo.TabIndex = 3;
-            // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(847, 42);
+            this.label2.Location = new System.Drawing.Point(3, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nominativo:";
             // 
-            // gdvComanda
+            // txtNominativo
             // 
-            this.gdvComanda.AllowUserToAddRows = false;
-            this.gdvComanda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.gdvComanda.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.gdvComanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdvComanda.DefaultCellStyle = dataGridViewCellStyle6;
-            this.gdvComanda.Location = new System.Drawing.Point(6, 42);
-            this.gdvComanda.Name = "gdvComanda";
-            this.gdvComanda.RowHeadersWidth = 51;
-            this.gdvComanda.RowTemplate.Height = 24;
-            this.gdvComanda.Size = new System.Drawing.Size(822, 551);
-            this.gdvComanda.TabIndex = 1;
-            this.gdvComanda.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvComanda_CellEndEdit);
+            this.txtNominativo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtNominativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNominativo.Location = new System.Drawing.Point(353, 35);
+            this.txtNominativo.Name = "txtNominativo";
+            this.txtNominativo.Size = new System.Drawing.Size(340, 45);
+            this.txtNominativo.TabIndex = 3;
             // 
-            // btnCreaComanda
+            // label3
             // 
-            this.btnCreaComanda.Location = new System.Drawing.Point(1062, 466);
-            this.btnCreaComanda.Name = "btnCreaComanda";
-            this.btnCreaComanda.Size = new System.Drawing.Size(147, 61);
-            this.btnCreaComanda.TabIndex = 0;
-            this.btnCreaComanda.Text = "Stampa";
-            this.btnCreaComanda.UseVisualStyleBackColor = true;
-            this.btnCreaComanda.Click += new System.EventHandler(this.btnCreaComanda_Click);
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 153);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 39);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Data:";
             // 
-            // tabVisualizzaComande
+            // label21
             // 
-            this.tabVisualizzaComande.Controls.Add(this.label32);
-            this.tabVisualizzaComande.Controls.Add(this.label33);
-            this.tabVisualizzaComande.Controls.Add(this.btnCercaComande);
-            this.tabVisualizzaComande.Controls.Add(this.comandeDataFine);
-            this.tabVisualizzaComande.Controls.Add(this.comandeDataInizio);
-            this.tabVisualizzaComande.Controls.Add(this.btnEsportaXls);
-            this.tabVisualizzaComande.Controls.Add(this.lblTotaleIncassoOggi);
-            this.tabVisualizzaComande.Controls.Add(this.label14);
-            this.tabVisualizzaComande.Controls.Add(this.label13);
-            this.tabVisualizzaComande.Controls.Add(this.gdvComandeOggi);
-            this.tabVisualizzaComande.Location = new System.Drawing.Point(4, 54);
-            this.tabVisualizzaComande.Name = "tabVisualizzaComande";
-            this.tabVisualizzaComande.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVisualizzaComande.Size = new System.Drawing.Size(1418, 782);
-            this.tabVisualizzaComande.TabIndex = 3;
-            this.tabVisualizzaComande.Text = "Visualizza comande";
-            this.tabVisualizzaComande.UseVisualStyleBackColor = true;
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(3, 498);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(134, 39);
+            this.label21.TabIndex = 12;
+            this.label21.Text = "Pagato:";
             // 
-            // label32
+            // lblDataAttuale
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(839, 510);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(65, 17);
-            this.label32.TabIndex = 14;
-            this.label32.Text = "Data fine";
+            this.lblDataAttuale.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblDataAttuale.AutoSize = true;
+            this.lblDataAttuale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataAttuale.Location = new System.Drawing.Point(353, 153);
+            this.lblDataAttuale.Name = "lblDataAttuale";
+            this.lblDataAttuale.Size = new System.Drawing.Size(89, 39);
+            this.lblDataAttuale.TabIndex = 5;
+            this.lblDataAttuale.Text = "Data";
             // 
-            // label33
+            // label4
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(584, 510);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(74, 17);
-            this.label33.TabIndex = 13;
-            this.label33.Text = "Data inizio";
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 268);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 39);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Ora:";
             // 
-            // btnCercaComande
+            // lblOraAttuale
             // 
-            this.btnCercaComande.Location = new System.Drawing.Point(684, 574);
-            this.btnCercaComande.Name = "btnCercaComande";
-            this.btnCercaComande.Size = new System.Drawing.Size(139, 46);
-            this.btnCercaComande.TabIndex = 12;
-            this.btnCercaComande.Text = "Cerca";
-            this.btnCercaComande.UseVisualStyleBackColor = true;
-            this.btnCercaComande.Click += new System.EventHandler(this.btnCercaComande_Click);
+            this.lblOraAttuale.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblOraAttuale.AutoSize = true;
+            this.lblOraAttuale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOraAttuale.Location = new System.Drawing.Point(353, 268);
+            this.lblOraAttuale.Name = "lblOraAttuale";
+            this.lblOraAttuale.Size = new System.Drawing.Size(73, 39);
+            this.lblOraAttuale.TabIndex = 7;
+            this.lblOraAttuale.Text = "Ora";
             // 
-            // comandeDataFine
+            // lblTotale
             // 
-            this.comandeDataFine.Location = new System.Drawing.Point(770, 546);
-            this.comandeDataFine.Name = "comandeDataFine";
-            this.comandeDataFine.Size = new System.Drawing.Size(232, 22);
-            this.comandeDataFine.TabIndex = 11;
-            // 
-            // comandeDataInizio
-            // 
-            this.comandeDataInizio.Location = new System.Drawing.Point(512, 546);
-            this.comandeDataInizio.Name = "comandeDataInizio";
-            this.comandeDataInizio.Size = new System.Drawing.Size(224, 22);
-            this.comandeDataInizio.TabIndex = 10;
-            // 
-            // btnEsportaXls
-            // 
-            this.btnEsportaXls.Location = new System.Drawing.Point(1213, 587);
-            this.btnEsportaXls.Name = "btnEsportaXls";
-            this.btnEsportaXls.Size = new System.Drawing.Size(178, 33);
-            this.btnEsportaXls.TabIndex = 5;
-            this.btnEsportaXls.Text = "Esporta file excel";
-            this.btnEsportaXls.UseVisualStyleBackColor = true;
-            this.btnEsportaXls.Click += new System.EventHandler(this.btnEsportaXls_Click_1);
-            // 
-            // lblTotaleIncassoOggi
-            // 
-            this.lblTotaleIncassoOggi.AutoSize = true;
-            this.lblTotaleIncassoOggi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotaleIncassoOggi.Location = new System.Drawing.Point(245, 587);
-            this.lblTotaleIncassoOggi.Name = "lblTotaleIncassoOggi";
-            this.lblTotaleIncassoOggi.Size = new System.Drawing.Size(0, 29);
-            this.lblTotaleIncassoOggi.TabIndex = 4;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(55, 587);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(184, 29);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Totale incasso:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(527, 40);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(377, 17);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Lista di tutte le comande emesse con il calcolo dell\'incasso";
-            // 
-            // gdvComandeOggi
-            // 
-            this.gdvComandeOggi.AllowUserToAddRows = false;
-            this.gdvComandeOggi.AllowUserToDeleteRows = false;
-            this.gdvComandeOggi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdvComandeOggi.Location = new System.Drawing.Point(36, 60);
-            this.gdvComandeOggi.Name = "gdvComandeOggi";
-            this.gdvComandeOggi.ReadOnly = true;
-            this.gdvComandeOggi.RowHeadersWidth = 51;
-            this.gdvComandeOggi.RowTemplate.Height = 24;
-            this.gdvComandeOggi.Size = new System.Drawing.Size(1391, 436);
-            this.gdvComandeOggi.TabIndex = 0;
-            this.gdvComandeOggi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvComandeOggi_CellClick);
+            this.lblTotale.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTotale.AutoSize = true;
+            this.lblTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotale.Location = new System.Drawing.Point(3, 383);
+            this.lblTotale.Name = "lblTotale";
+            this.lblTotale.Size = new System.Drawing.Size(121, 39);
+            this.lblTotale.TabIndex = 8;
+            this.lblTotale.Text = "Totale:";
             // 
             // tabStatistiche
             // 
-            this.tabStatistiche.Controls.Add(this.label31);
-            this.tabStatistiche.Controls.Add(this.label30);
-            this.tabStatistiche.Controls.Add(this.btnCercaStatistiche);
-            this.tabStatistiche.Controls.Add(this.statsDataFine);
-            this.tabStatistiche.Controls.Add(this.statsDataInizio);
-            this.tabStatistiche.Controls.Add(this.lblStatisticheIncasso);
-            this.tabStatistiche.Controls.Add(this.label29);
-            this.tabStatistiche.Controls.Add(this.btnEsportaXlsStatistiche);
-            this.tabStatistiche.Controls.Add(this.gdvStatistiche);
+            this.tabStatistiche.Controls.Add(this.tableLayoutPanel13);
             this.tabStatistiche.Location = new System.Drawing.Point(4, 54);
             this.tabStatistiche.Name = "tabStatistiche";
             this.tabStatistiche.Padding = new System.Windows.Forms.Padding(3);
@@ -931,27 +993,21 @@ namespace GestioneComande
             this.tabStatistiche.Text = "Statistiche";
             this.tabStatistiche.UseVisualStyleBackColor = true;
             // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(1640, 179);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(65, 17);
-            this.label31.TabIndex = 9;
-            this.label31.Text = "Data fine";
-            // 
             // label30
             // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(1066, 91);
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(3, 49);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(74, 17);
+            this.label30.Size = new System.Drawing.Size(188, 39);
             this.label30.TabIndex = 8;
             this.label30.Text = "Data inizio";
             // 
             // btnCercaStatistiche
             // 
-            this.btnCercaStatistiche.Location = new System.Drawing.Point(1166, 168);
+            this.btnCercaStatistiche.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCercaStatistiche.Location = new System.Drawing.Point(353, 310);
             this.btnCercaStatistiche.Name = "btnCercaStatistiche";
             this.btnCercaStatistiche.Size = new System.Drawing.Size(139, 46);
             this.btnCercaStatistiche.TabIndex = 7;
@@ -961,40 +1017,44 @@ namespace GestioneComande
             // 
             // statsDataFine
             // 
-            this.statsDataFine.Location = new System.Drawing.Point(1252, 127);
+            this.statsDataFine.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.statsDataFine.Location = new System.Drawing.Point(353, 196);
             this.statsDataFine.Name = "statsDataFine";
             this.statsDataFine.Size = new System.Drawing.Size(232, 22);
             this.statsDataFine.TabIndex = 6;
             // 
             // statsDataInizio
             // 
-            this.statsDataInizio.Location = new System.Drawing.Point(994, 127);
+            this.statsDataInizio.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.statsDataInizio.Location = new System.Drawing.Point(353, 58);
             this.statsDataInizio.Name = "statsDataInizio";
             this.statsDataInizio.Size = new System.Drawing.Size(224, 22);
             this.statsDataInizio.TabIndex = 5;
             // 
             // lblStatisticheIncasso
             // 
+            this.lblStatisticheIncasso.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblStatisticheIncasso.AutoSize = true;
             this.lblStatisticheIncasso.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatisticheIncasso.Location = new System.Drawing.Point(1255, 466);
+            this.lblStatisticheIncasso.Location = new System.Drawing.Point(353, 524);
             this.lblStatisticheIncasso.Name = "lblStatisticheIncasso";
             this.lblStatisticheIncasso.Size = new System.Drawing.Size(0, 39);
             this.lblStatisticheIncasso.TabIndex = 4;
             // 
             // label29
             // 
+            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(987, 466);
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(3, 524);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(246, 39);
+            this.label29.Size = new System.Drawing.Size(261, 39);
             this.label29.TabIndex = 3;
             this.label29.Text = "Totale incasso:";
             // 
             // btnEsportaXlsStatistiche
             // 
-            this.btnEsportaXlsStatistiche.Location = new System.Drawing.Point(1132, 534);
+            this.btnEsportaXlsStatistiche.Location = new System.Drawing.Point(353, 701);
             this.btnEsportaXlsStatistiche.Name = "btnEsportaXlsStatistiche";
             this.btnEsportaXlsStatistiche.Size = new System.Drawing.Size(173, 55);
             this.btnEsportaXlsStatistiche.TabIndex = 2;
@@ -1006,13 +1066,16 @@ namespace GestioneComande
             // 
             this.gdvStatistiche.AllowUserToAddRows = false;
             this.gdvStatistiche.AllowUserToDeleteRows = false;
+            this.gdvStatistiche.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gdvStatistiche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdvStatistiche.Location = new System.Drawing.Point(43, 59);
+            this.gdvStatistiche.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gdvStatistiche.Location = new System.Drawing.Point(3, 50);
+            this.gdvStatistiche.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
             this.gdvStatistiche.Name = "gdvStatistiche";
             this.gdvStatistiche.ReadOnly = true;
             this.gdvStatistiche.RowHeadersWidth = 51;
             this.gdvStatistiche.RowTemplate.Height = 24;
-            this.gdvStatistiche.Size = new System.Drawing.Size(810, 519);
+            this.gdvStatistiche.Size = new System.Drawing.Size(700, 723);
             this.gdvStatistiche.TabIndex = 0;
             // 
             // printPreviewDialog1
@@ -1358,109 +1421,202 @@ namespace GestioneComande
             this.iconDropDownButton2.Size = new System.Drawing.Size(23, 23);
             this.iconDropDownButton2.Text = "iconDropDownButton2";
             // 
-            // tabHome
+            // lblTotaleIncassoOggi
             // 
-            this.tabHome.Controls.Add(this.tableLayoutPanel7);
-            this.tabHome.Location = new System.Drawing.Point(4, 54);
-            this.tabHome.Name = "tabHome";
-            this.tabHome.Size = new System.Drawing.Size(1418, 782);
-            this.tabHome.TabIndex = 6;
-            this.tabHome.Text = "Home";
-            this.tabHome.UseVisualStyleBackColor = true;
+            this.lblTotaleIncassoOggi.AutoSize = true;
+            this.lblTotaleIncassoOggi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotaleIncassoOggi.Location = new System.Drawing.Point(706, 128);
+            this.lblTotaleIncassoOggi.Name = "lblTotaleIncassoOggi";
+            this.lblTotaleIncassoOggi.Size = new System.Drawing.Size(0, 39);
+            this.lblTotaleIncassoOggi.TabIndex = 4;
             // 
-            // tableLayoutPanel7
+            // btnEsportaXls
             // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.label5, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.lblNomeProgramma, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1418, 782);
-            this.tableLayoutPanel7.TabIndex = 0;
+            this.btnEsportaXls.Location = new System.Drawing.Point(706, 200);
+            this.btnEsportaXls.Name = "btnEsportaXls";
+            this.btnEsportaXls.Size = new System.Drawing.Size(178, 33);
+            this.btnEsportaXls.TabIndex = 5;
+            this.btnEsportaXls.Text = "Esporta file excel";
+            this.btnEsportaXls.UseVisualStyleBackColor = true;
+            this.btnEsportaXls.Click += new System.EventHandler(this.btnEsportaXls_Click_1);
             // 
-            // lblNomeProgramma
+            // btnCercaComande
             // 
-            this.lblNomeProgramma.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblNomeProgramma.AutoSize = true;
-            this.lblNomeProgramma.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeProgramma.Location = new System.Drawing.Point(154, 100);
-            this.lblNomeProgramma.Name = "lblNomeProgramma";
-            this.lblNomeProgramma.Size = new System.Drawing.Size(400, 190);
-            this.lblNomeProgramma.TabIndex = 0;
-            this.lblNomeProgramma.Text = "Gestione comande";
+            this.btnCercaComande.Location = new System.Drawing.Point(3, 200);
+            this.btnCercaComande.Name = "btnCercaComande";
+            this.btnCercaComande.Size = new System.Drawing.Size(139, 46);
+            this.btnCercaComande.TabIndex = 12;
+            this.btnCercaComande.Text = "Cerca";
+            this.btnCercaComande.UseVisualStyleBackColor = true;
+            this.btnCercaComande.Click += new System.EventHandler(this.btnCercaComande_Click);
             // 
-            // label1
+            // tableLayoutPanel11
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(267, 557);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 58);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "v 1.0.0";
+            this.tableLayoutPanel11.ColumnCount = 1;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.gdvComandeOggi, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel12, 0, 1);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 2;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.91753F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.08247F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(1412, 776);
+            this.tableLayoutPanel11.TabIndex = 15;
             // 
-            // label5
+            // tableLayoutPanel12
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(867, 137);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(392, 116);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Creato da \r\nDaris Cappelletti";
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Controls.Add(this.label33, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.lblTotaleIncassoOggi, 1, 2);
+            this.tableLayoutPanel12.Controls.Add(this.btnEsportaXls, 1, 3);
+            this.tableLayoutPanel12.Controls.Add(this.btnCercaComande, 0, 3);
+            this.tableLayoutPanel12.Controls.Add(this.label32, 0, 1);
+            this.tableLayoutPanel12.Controls.Add(this.comandeDataFine, 1, 1);
+            this.tableLayoutPanel12.Controls.Add(this.comandeDataInizio, 1, 0);
+            this.tableLayoutPanel12.Controls.Add(this.label14, 0, 2);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 499);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 4;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(1406, 274);
+            this.tableLayoutPanel12.TabIndex = 1;
             // 
-            // lblNomeTipologia
+            // label14
             // 
-            this.lblNomeTipologia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblNomeTipologia.AutoSize = true;
-            this.lblNomeTipologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeTipologia.Location = new System.Drawing.Point(80, 58);
-            this.lblNomeTipologia.Name = "lblNomeTipologia";
-            this.lblNomeTipologia.Size = new System.Drawing.Size(122, 39);
-            this.lblNomeTipologia.TabIndex = 12;
-            this.lblNomeTipologia.Text = "Nome:";
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 143);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(261, 39);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Totale incasso:";
             // 
-            // label6
+            // comandeDataInizio
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(53, 213);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(176, 39);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Tipologia:";
+            this.comandeDataInizio.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comandeDataInizio.Location = new System.Drawing.Point(706, 21);
+            this.comandeDataInizio.Name = "comandeDataInizio";
+            this.comandeDataInizio.Size = new System.Drawing.Size(224, 22);
+            this.comandeDataInizio.TabIndex = 10;
             // 
-            // label7
+            // comandeDataFine
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(59, 368);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(163, 39);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Quantità:";
+            this.comandeDataFine.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comandeDataFine.Location = new System.Drawing.Point(706, 85);
+            this.comandeDataFine.Name = "comandeDataFine";
+            this.comandeDataFine.Size = new System.Drawing.Size(232, 22);
+            this.comandeDataFine.TabIndex = 11;
             // 
-            // label8
+            // label32
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(80, 523);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 39);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Costo:";
+            this.label32.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(3, 76);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(162, 39);
+            this.label32.TabIndex = 14;
+            this.label32.Text = "Data fine";
+            // 
+            // label33
+            // 
+            this.label33.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(3, 12);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(188, 39);
+            this.label33.TabIndex = 13;
+            this.label33.Text = "Data inizio";
+            // 
+            // gdvComandeOggi
+            // 
+            this.gdvComandeOggi.AllowUserToAddRows = false;
+            this.gdvComandeOggi.AllowUserToDeleteRows = false;
+            this.gdvComandeOggi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gdvComandeOggi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gdvComandeOggi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gdvComandeOggi.Location = new System.Drawing.Point(3, 50);
+            this.gdvComandeOggi.Margin = new System.Windows.Forms.Padding(3, 50, 3, 3);
+            this.gdvComandeOggi.Name = "gdvComandeOggi";
+            this.gdvComandeOggi.ReadOnly = true;
+            this.gdvComandeOggi.RowHeadersWidth = 51;
+            this.gdvComandeOggi.RowTemplate.Height = 24;
+            this.gdvComandeOggi.Size = new System.Drawing.Size(1406, 443);
+            this.gdvComandeOggi.TabIndex = 0;
+            this.gdvComandeOggi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvComandeOggi_CellClick);
+            // 
+            // tabVisualizzaComande
+            // 
+            this.tabVisualizzaComande.Controls.Add(this.tableLayoutPanel11);
+            this.tabVisualizzaComande.Location = new System.Drawing.Point(4, 54);
+            this.tabVisualizzaComande.Name = "tabVisualizzaComande";
+            this.tabVisualizzaComande.Padding = new System.Windows.Forms.Padding(3);
+            this.tabVisualizzaComande.Size = new System.Drawing.Size(1418, 782);
+            this.tabVisualizzaComande.TabIndex = 3;
+            this.tabVisualizzaComande.Text = "Visualizza comande";
+            this.tabVisualizzaComande.UseVisualStyleBackColor = true;
+            this.tabVisualizzaComande.Click += new System.EventHandler(this.tabVisualizzaComande_Click);
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 2;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.Controls.Add(this.gdvStatistiche, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel14, 1, 0);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 1;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(1412, 776);
+            this.tableLayoutPanel13.TabIndex = 10;
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 2;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.Controls.Add(this.label31, 0, 1);
+            this.tableLayoutPanel14.Controls.Add(this.label30, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.statsDataInizio, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.btnEsportaXlsStatistiche, 1, 4);
+            this.tableLayoutPanel14.Controls.Add(this.label29, 0, 3);
+            this.tableLayoutPanel14.Controls.Add(this.lblStatisticheIncasso, 1, 3);
+            this.tableLayoutPanel14.Controls.Add(this.btnCercaStatistiche, 1, 2);
+            this.tableLayoutPanel14.Controls.Add(this.statsDataFine, 1, 1);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(709, 3);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 5;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 308F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(700, 770);
+            this.tableLayoutPanel14.TabIndex = 1;
+            // 
+            // label31
+            // 
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(3, 187);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(162, 39);
+            this.label31.TabIndex = 10;
+            this.label31.Text = "Data fine";
             // 
             // Form1
             // 
@@ -1474,6 +1630,9 @@ namespace GestioneComande
             this.Text = "Gestione comande";
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.tabGestioneComande.ResumeLayout(false);
+            this.tabHome.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.tabConfigura.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -1490,17 +1649,16 @@ namespace GestioneComande
             this.tableLayoutPanel1.PerformLayout();
             this.tabListaPiatti.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrListaPiatti)).EndInit();
             this.tabCreaComanda.ResumeLayout(false);
-            this.tabCreaComanda.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numPagato)).EndInit();
+            this.tableLayoutPanel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gdvComanda)).EndInit();
-            this.tabVisualizzaComande.ResumeLayout(false);
-            this.tabVisualizzaComande.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvComandeOggi)).EndInit();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPagato)).EndInit();
             this.tabStatistiche.ResumeLayout(false);
-            this.tabStatistiche.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvStatistiche)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -1508,9 +1666,14 @@ namespace GestioneComande
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.tabHome.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gdvComandeOggi)).EndInit();
+            this.tabVisualizzaComande.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.tableLayoutPanel14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1533,16 +1696,9 @@ namespace GestioneComande
         private System.Windows.Forms.Label lblOraAttuale;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.Label lblCostoTotale;
         private System.Windows.Forms.Label lblTotale;
-        private System.Windows.Forms.TabPage tabVisualizzaComande;
-        private System.Windows.Forms.DataGridView gdvComandeOggi;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblTotaleIncassoOggi;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnEsportaXls;
         private System.Windows.Forms.TabPage tabConfigura;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
@@ -1566,16 +1722,10 @@ namespace GestioneComande
         private Button btnEsportaXlsStatistiche;
         private Label lblStatisticheIncasso;
         private Label label29;
-        private Label label31;
         private Label label30;
         private Button btnCercaStatistiche;
         private DateTimePicker statsDataFine;
         private DateTimePicker statsDataInizio;
-        private Label label32;
-        private Label label33;
-        private Button btnCercaComande;
-        private DateTimePicker comandeDataFine;
-        private DateTimePicker comandeDataInizio;
         private Panel panelMenu;
         private Panel panel4;
         private Panel panel2;
@@ -1615,6 +1765,25 @@ namespace GestioneComande
         private Label label7;
         private Label label6;
         private Label lblNomeTipologia;
+        private TableLayoutPanel tableLayoutPanel8;
+        private TableLayoutPanel tableLayoutPanel9;
+        private TableLayoutPanel tableLayoutPanel10;
+        private Label lblCostoTotale;
+        private TabPage tabVisualizzaComande;
+        private TableLayoutPanel tableLayoutPanel11;
+        private DataGridView gdvComandeOggi;
+        private TableLayoutPanel tableLayoutPanel12;
+        private Label label33;
+        private Button btnEsportaXls;
+        private Button btnCercaComande;
+        private Label label32;
+        private DateTimePicker comandeDataFine;
+        private DateTimePicker comandeDataInizio;
+        private Label label14;
+        private Label lblTotaleIncassoOggi;
+        private TableLayoutPanel tableLayoutPanel13;
+        private TableLayoutPanel tableLayoutPanel14;
+        private Label label31;
     }
 }
 
