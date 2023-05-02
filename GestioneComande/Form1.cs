@@ -171,7 +171,7 @@ namespace GestioneComande
                     Piatto objPiatto = new Piatto();
                     objPiatto.Nome = txtTipologia.Text;
                     objPiatto.Tipologia = tipo;
-                    objPiatto.Costo = Convert.ToDecimal(txtCosto.Text);
+                    objPiatto.Costo = Convert.ToDecimal(txtCosto.Text.Replace(".", ","));
                     objPiatto.Quantita = Convert.ToInt32(txtQuantita.Text);
                     objPiatto.Attivo = true;
 
