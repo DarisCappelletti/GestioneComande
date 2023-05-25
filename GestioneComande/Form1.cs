@@ -341,7 +341,7 @@ namespace GestioneComande
             gdvComanda.Columns["Rimaste"].ReadOnly = true;
             
             gdvComanda.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            gdvComanda.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //gdvComanda.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             gdvComanda.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
@@ -782,7 +782,18 @@ namespace GestioneComande
 
         private bool copyAlltoClipboard()
         {
+            // seleziono la tabella
             gdvComandeOggi.SelectAll();
+
+            // Deseleziona la prima colonna
+            foreach (DataGridViewRow row in gdvComandeOggi.Rows)
+            {
+                if (row.Index >= 0 && row.Index < gdvComandeOggi.Rows.Count)
+                {
+                    DataGridViewCell cell = row.Cells[0];
+                    cell.Selected = false;
+                }
+            }
 
             gdvComandeOggi.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             DataObject dataObj = gdvComandeOggi.GetClipboardContent();
